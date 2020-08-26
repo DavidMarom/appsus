@@ -1,4 +1,3 @@
-import { Storage } from "./storage-service";
 
 export const noteService = {
   getNotes,
@@ -6,10 +5,22 @@ export const noteService = {
 
 var notes=[];
 
-if (!Storage.loadFromStorage('notes') || Storage.loadFromStorage('notes') == '') { // if nothing in storage
+
+function saveToStorage(key, val) {
+  var str = JSON.stringify(val);
+  localStorage.setItem(key, str)
+}
+
+function loadFromStorage(key) {
+  var str = localStorage.getItem(key);
+  var val = JSON.parse(str)
+  return val;
+}
+
+if (!loadFromStorage('notes') || loadFromStorage('notes') == '') { // if nothing in storage
   loadDump();
 } else {
-  notes = Storage.loadFromStorage('notes');
+  notes = loadFromStorage('notes');
 }
 
 function loadDump() {
@@ -20,9 +31,8 @@ function loadDump() {
     title: 'Note 2',
     body: 'text text'
   }]
-  Storage.saveToStorage('notes', notes);
+  saveToStorage('notes', notes);
 }
-
 
 function getNotes() {
   return Promise.resolve(notes)
