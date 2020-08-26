@@ -17,13 +17,14 @@ export class MailInbox extends React.Component {
     }
 
     loadMails() {
-        const mailsFromStorage = Storage.loadFromStorage('mails');
-        (!mailsFromStorage) ? (mailService.query()
+        // const mailsFromStorage = Storage.loadFromStorage('mails');
+        // (!mailsFromStorage) ? (mailService.query()
+        const mails = mailService.query()
             .then(mails => {
                 this.setState({ mails })
                 Storage.saveToStorage('mails', mails)
             })
-        ) : this.setState({ mails: mailsFromStorage })
+        // ) : this.setState({ mails: mailsFromStorage })
     }
 
 

@@ -10,7 +10,7 @@ export function MailPreview({ mail , ChangePage}) {
 
     return (
         <div>
-            <Link to ={`/mail/${id}`} onClick= {()=>UpdateReadMails(), ()=>ChangePage()} >
+            <Link to ={`/mail/${id}`} onClick= {()=>UpdateReadMails(), ()=>ChangePage(event,id)} >
             <section className="single-mail-component">
                 <div className={(isRead)? "open":"close"}>{subject}</div>
                 <div className="body">{body}</div>

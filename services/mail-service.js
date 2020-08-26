@@ -28,13 +28,13 @@ function query() {
     return Promise.resolve(mails)
 }
 
-function getTime(){
+function getTime() {
     var date = new Date();
     var timeInHours = date.getHours()
     return timeInHours;
 }
 
-function getMailById(mailId){
-        const mail = mails.find(mail => mail.id === mailId)
-        return Promise.resolve(mail)
+function getMailById(mailId) {
+    const mail = mails.find(mail => mail.id === mailId)
+    return Promise.resolve(mail)
 }

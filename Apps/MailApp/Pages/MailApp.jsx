@@ -6,15 +6,18 @@ import { MailDetails } from './Mail-details.jsx'
 export class MailApp extends React.Component {
 
     state = {
-        isInboxActive: true
+        isInboxActive: true,
+        currPageId: ''
     }
 
     componentDidMount() {
         this.ChangePage;
     }
 
-    ChangePage(ev){
+    ChangePage =(ev, id) =>{
         console.log(ev);
+        console.log('id-',id);
+        this.setState({isInboxActive: !this.state.isInboxActive, currPageId : id})
     }
 
     
@@ -37,12 +40,13 @@ export class MailApp extends React.Component {
                         <div>Drafts</div>
                         <div>opened</div>
                     </div>
-                    {(isInboxActive)?<MailInbox ChangePage={this.ChangePage}/> : <MailDetails ChangePage={this.ChangePage}/> }
+                    {(isInboxActive)?<MailInbox ChangePage={this.ChangePage}/> : <MailDetails ChangePage={this.ChangePage}
+                     id= {this.state.currPageId}/> }
                 </div>
-                <Switch>
+                {/* <Switch>
                     <Route component={MailInbox} path="/mail/inbox" />
                     <Route component={MailDetails} path="/mail/:mailId" />
-                </Switch>
+                </Switch> */}
             </div>
         )
     }

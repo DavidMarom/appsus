@@ -3,7 +3,7 @@ const { Route, Switch } = ReactRouterDOM
 
 import { MailApp } from './Apps/MailApp/Pages/MailApp.jsx';
 import { NoteApp } from './Apps/NoteApp/Pages/NoteApp.jsx';
-import { MailDetails} from './Apps/MailApp/Pages/Mail-details.jsx'
+
 
 import { Home } from './pages/Home.jsx';
 import { Notification } from './cmps/Notifications.jsx'

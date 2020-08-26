@@ -101,3 +101,11 @@
 .close{
     font-weight: bold;
 }
+
+/* details mail page */
+
+.main-details{
+    height: 38rem;
+    width: 70%;
+
+}
