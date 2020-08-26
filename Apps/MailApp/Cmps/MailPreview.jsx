@@ -1,6 +1,6 @@
 const { Link } = ReactRouterDOM
 
-export function MailPreview({ mail , ChangePage}) {
+export function MailPreview({ mail , getId}) {
 
     function   UpdateReadMails(){
         return isRead = true;
@@ -10,11 +10,11 @@ export function MailPreview({ mail , ChangePage}) {
 
     return (
         <div>
-            <Link to ={`/mail/${id}`} onClick= {()=>UpdateReadMails(), ()=>ChangePage(event,id)} >
+            <Link to ={`/mail/${id}`} onClick= {()=>getId(id) , ()=>UpdateReadMails()} >
             <section className="single-mail-component">
                 <div className={(isRead)? "open":"close"}>{subject}</div>
-                <div className="body">{body}</div>
-                <div className="sentAt">{sentAt}</div>
+                <div className="body-inbox">{body}</div>
+                <div className="sentAt-inbox">{sentAt}</div>
             </section>
             </Link>
             <hr />

@@ -94,6 +94,20 @@
     position: relative;
 }
 
+.subject
+
+.sent-at-inbox{
+    flex-grow: 1;
+    display: flex;
+    justify-content: start;
+}
+
+.body-inbox{
+    flex-grow: 4;
+    display: flex;
+    justify-content: start;
+}
+
 .open{
     font-weight: normal;
 }
@@ -105,7 +119,29 @@
 /* details mail page */
 
 .main-details{
+    background-color: #fff;
     height: 38rem;
-    width: 70%;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
 
+.main-details >*{
+    display: flex;
+    border-bottom: 1px solid #3c4043;
+}
+.sent-at{
+    align-items: center;
+    flex-grow: 1;
+}
+
+.subject{
+    padding: 20px 72px 8px 0;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.body{
+    flex-grow:4;
+    padding-left :2.5rem;
 }

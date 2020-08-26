@@ -5,7 +5,8 @@ export const mailService = {
     // saveMail,
     getEmptyMail,
     query,
-    getMailById
+    getMailById,
+    togglePages
 }
 
 var mails = [
@@ -35,6 +36,12 @@ function getTime() {
 }
 
 function getMailById(mailId) {
+    console.log('mailId-', mailId);
+    console.log(mails);
     const mail = mails.find(mail => mail.id === mailId)
     return Promise.resolve(mail)
+}
+
+function togglePages(bool){
+    return !bool
 }
