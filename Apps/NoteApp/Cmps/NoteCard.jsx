@@ -12,10 +12,11 @@ export class NoteCard extends React.Component {
     render() {
         const { note } = this.state
         return (
-            // <p>{this.props.content.title}</p>
-            <div className="note-card">
-                <p>{!note && this.props.content.title}</p>
+
+            <div className={`note-card ${this.props.content.bg}`}>
+                <h3>{!note && this.props.content.title}</h3>
                 <p>{this.props.content.body}</p>
+                <img src={`${this.props.content.url}`}></img>
 
             </div>
 
