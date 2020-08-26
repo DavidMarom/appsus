@@ -2,8 +2,8 @@ const { NavLink, withRouter } = ReactRouterDOM
 
 // **************  NOTE PAGE  **********
 
-import { noteService } from "../services/note-service.js";
-import { NoteCard } from "../cmps/notes/NoteCard.jsx";
+import { noteService } from "../../../services/note-service.js";
+import { NoteCard } from "../Cmps/NoteCard.jsx";
 
 export class NoteApp extends React.Component {
     state = {

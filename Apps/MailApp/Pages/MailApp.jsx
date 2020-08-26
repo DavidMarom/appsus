@@ -1,10 +1,10 @@
 const { NavLink, withRouter } = ReactRouterDOM
 
 // import { Review } from "../cmps/Review.jsx";
-import { MainService } from "../services/main-service.js";
-import { mailService } from "../services/mail-service.js";
-import { Storage } from '../services/storage-service.js';
-import { MailList } from '../cmps/mail/MailList.jsx'
+import { MainService } from "../../../services/main-service.js";
+import { mailService } from "../../../services/mail-service.js";
+import { Storage } from '../../../services/storage-service.js';
+import { MailList } from '../Cmps/MailList.jsx'
 
 
 export class MailApp extends React.Component {
@@ -34,7 +34,7 @@ export class MailApp extends React.Component {
     render() {
         const mails = this.state.mails;
         const selectedMail = this.state.selectedMail;
-        return (
+        return (//switch --> route
             <div>
                 <div className="upper-mail-navbar">
                     <button>Choose/sortBy</button>

@@ -17,3 +17,4 @@ function loadFromStorage(key) {
     var val = JSON.parse(str)
     return val;
 }
+

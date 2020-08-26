@@ -1,9 +1,9 @@
 const {withRouter} = ReactRouterDOM
 const { Link } = ReactRouterDOM
 
-import {MailPreview} from '../cmps/mail/MailPreview.jsx'
-import {mailService} from   '../services/mail-service.js'
-import {Storage} from '../services/storage-service.js'
+import {MailPreview} from '../../../cmps/mail/MailPreview.jsx'
+import {mailService} from   '../../../services/mail-service.js'
+import {Storage} from '../../../services/storage-service.js'
 
 
 export class MailDetails extends React.Component{

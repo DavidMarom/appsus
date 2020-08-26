@@ -1,9 +1,9 @@
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
-import { MailApp } from './pages/Mail.jsx';
-import { NoteApp } from './pages/NoteApp.jsx';
-import { MailDetails} from './pages/Mail-details.jsx'
+import { MailApp } from './Apps/MailApp/Pages/MailApp.jsx';
+import { NoteApp } from './Apps/NoteApp/Pages/NoteApp.jsx';
+import { MailDetails} from './Apps/MailApp/Pages/Mail-details.jsx'
 
 import { Home } from './pages/Home.jsx';
 import { Notification } from './cmps/Notifications.jsx'
@@ -23,7 +23,6 @@ export class App extends React.Component {
                     <main className="page">
                         <Switch>
                             <Route component ={MailDetails} path="/mail/:mailId"/>
-                            {/* <Route component={BookDetails} path="/book/:bookId" /> */}
                             <Route component={MailApp} path="/mail" />
                             <Route component={NoteApp} path="/note" />
                             <Route component={Home} path="/" />
