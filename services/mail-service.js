@@ -1,6 +1,6 @@
 export const mailService ={
-    getMails,
-    saveMail,
+    // getMails,
+    // saveMail,
     getEmptyMail,
     query
 }
