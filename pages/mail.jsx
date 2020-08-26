@@ -31,6 +31,7 @@ export class MailApp extends React.Component {
     render() {
 
         return (
+        <div>
             <div className="upper-mail-navbar">
                 <button>Choose/sortBy</button>
                 <botton>Refresh-page</botton>
@@ -48,6 +49,7 @@ export class MailApp extends React.Component {
                 {/* {!selectedBook && <MailList books={books} />} */}
                 </div>
             </div>
+        </div>
         )
     }
 }
