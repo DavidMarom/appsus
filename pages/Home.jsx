@@ -5,9 +5,12 @@ export class Home extends React.Component {
     render() {
         return (
             <section>
-                <h1>Home</h1>
+                <div className="hero-img">
+                <NavLink to="/mail" className="bigBtn">Start ></NavLink>
 
-                <NavLink to="/book" className="bigBtn">See the book collection</NavLink>
+                </div>
+
+
             </section>
         )
     }

@@ -20,7 +20,7 @@ export class App extends React.Component {
                     <header>
                         <NavBar />
                     </header>
-                    <main className="page">
+                    <main>
                         <Switch>
                             <Route component ={MailDetails} path="/mail/:mailId"/>
                             <Route component={MailApp} path="/mail" />

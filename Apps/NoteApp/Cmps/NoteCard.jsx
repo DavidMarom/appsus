@@ -15,6 +15,8 @@ export class NoteCard extends React.Component {
             // <p>{this.props.content.title}</p>
             <div className="note-card">
                 <p>{!note && this.props.content.title}</p>
+                <p>{this.props.content.body}</p>
+
             </div>
 
         )
