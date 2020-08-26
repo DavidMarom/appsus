@@ -1,3 +1,4 @@
+import { Storage } from "./storage-service.js";
 
 export const noteService = {
   getNotes,
@@ -6,21 +7,11 @@ export const noteService = {
 var notes=[];
 
 
-function saveToStorage(key, val) {
-  var str = JSON.stringify(val);
-  localStorage.setItem(key, str)
-}
 
-function loadFromStorage(key) {
-  var str = localStorage.getItem(key);
-  var val = JSON.parse(str)
-  return val;
-}
-
-if (!loadFromStorage('notes') || loadFromStorage('notes') == '') { // if nothing in storage
+if (!Storage.loadFromStorage('notes') || Storage.loadFromStorage('notes') == '') { // if nothing in storage
   loadDump();
 } else {
-  notes = loadFromStorage('notes');
+  notes = Storage.loadFromStorage('notes');
 }
 
 function loadDump() {
@@ -31,7 +22,7 @@ function loadDump() {
     title: 'Note 2',
     body: 'text text'
   }]
-  saveToStorage('notes', notes);
+  Storage.saveToStorage('notes', notes);
 }
 
 function getNotes() {
