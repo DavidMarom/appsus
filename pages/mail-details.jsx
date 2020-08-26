@@ -2,7 +2,7 @@ const {withRouter} = ReactRouterDOM
 const { Link } = ReactRouterDOM
 
 import {MailPreview} from '../cmps/mail/MailPreview.jsx'
-import {mailService} from   '../services/main-service.js'
+import {mailService} from   '../services/mail-service.js'
 import {Storage} from '../services/storage-service.js'
 
 
@@ -20,7 +20,7 @@ export class MailDetails extends React.Component{
     componentDidMount() {
         console.log(this.props.match)
         const mailId = this.props.match.params.mailId;
-        MainService.getById(mailId)
+        mailService.getMailById(mailId)
         .then(mail =>{ 
             this.setState({ mail })
         })

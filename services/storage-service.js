@@ -1,7 +1,6 @@
 export const Storage = {
     saveToStorage,
-    loadFromStorage,   
-    getAxios
+    loadFromStorage
 }
 
 function saveToStorage(key, val) {
@@ -15,7 +14,3 @@ function loadFromStorage(key) {
     return val;
 }
 
-function getAxios(uri) {
-    return axios.get(uri)
-        .then(res => res.data)
-}

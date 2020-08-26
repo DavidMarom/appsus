@@ -4,7 +4,8 @@ export const mailService = {
     // getMails,
     // saveMail,
     getEmptyMail,
-    query
+    query,
+    getMailById
 }
 
 var mails = [
@@ -31,4 +32,9 @@ function getTime(){
     var date = new Date();
     var timeInHours = date.getHours()
     return timeInHours;
+}
+
+function getMailById(mailId){
+        const mail = mails.find(mail => mail.id === mailId)
+        return Promise.resolve(mail)
 }
