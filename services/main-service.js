@@ -1,4 +1,4 @@
-export const bookService = {
+export const MainService = {
   getBooks,
   getById,
   save,
