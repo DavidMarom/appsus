@@ -1,7 +1,6 @@
 const { NavLink, withRouter } = ReactRouterDOM
 
 import { bookService } from "../services/book-service.js";
-import { Review } from "../cmps/Review.jsx";
 
 
 export class MailApp extends React.Component {

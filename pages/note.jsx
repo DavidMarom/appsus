@@ -1,22 +1,30 @@
 const { NavLink, withRouter } = ReactRouterDOM
 
-import { bookService } from "../services/book-service.js";
-import { Review } from "../cmps/Review.jsx";
-
+import { noteService } from "../services/note-service.js";
 
 export class NoteApp extends React.Component {
     state = {
+        notes: ''
     }
 
-
     componentDidMount() {
-        
+        this.loadNotes();
+    }
+
+    loadNotes() {
+        noteService.getNotes()
+            .then(notes => {
+                this.setState({ notes })
+            })
     }
 
     render() {
-       
         return (
-            <h1>Note</h1>
+            <div className="note-container">
+                {this.state.notes.length && this.state.notes.map(note => note.title)}
+                {/* console.log(this.state.notes); */}
+sdfds
+            </div>
         )
     }
 }
