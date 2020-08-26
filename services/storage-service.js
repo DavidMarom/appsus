@@ -1,4 +1,3 @@
-
 export const Storage = {
     saveToStorage,
     loadFromStorage,   

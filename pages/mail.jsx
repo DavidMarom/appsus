@@ -29,6 +29,8 @@ export class MailApp extends React.Component {
         ) : this.setState({ mails: mailsFromStorage })
     }
 
+  
+
     render() {
         const mails = this.state.mails;
         const selectedMail = this.state.selectedMail;

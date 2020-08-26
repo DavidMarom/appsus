@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-    margin: 0;
+    /* margin: 0; */
     font-size: 1.3rem;
 }
 
@@ -22,6 +22,7 @@
     transition: box-shadow .15s cubic-bezier(0.4,0.0,0.2,1);
 }
 
+/* MAIN PAGE*/
 .main-mail-page{
     display: -webkit-box;
     display: -webkit-flex;
@@ -30,6 +31,9 @@
     -webkit-flex-direction: row;
     flex-direction: row;
 }
+
+
+/* SIDE BAR*/
 
 .left-nav-bar{
     width:18rem;
@@ -73,8 +77,27 @@
     transition: margin .15s cubic-bezier(0.4,0.0,0.2,1),padding .15s cubic-bezier(0.4,0.0,0.2,1);
 }
 
+/*MIAN MAIL AREA*/
 
 .main-mail-container{
     height: 38rem;
-    padding-right: 0;
+    width: 100%;
+}
+
+.single-mail-component{
+    padding-right: 1.5rem;
+    cursor: pointer;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+}
+
+.open{
+    font-weight: normal;
+}
+
+.close{
+    font-weight: bold;
 }
