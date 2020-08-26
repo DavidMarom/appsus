@@ -1,10 +1,12 @@
-import { Storage } from "./storage-service";
+import { Storage } from "./storage-service.js";
 
 export const noteService = {
   getNotes,
 }
 
 var notes=[];
+
+
 
 if (!Storage.loadFromStorage('notes') || Storage.loadFromStorage('notes') == '') { // if nothing in storage
   loadDump();
@@ -22,7 +24,6 @@ function loadDump() {
   }]
   Storage.saveToStorage('notes', notes);
 }
-
 
 function getNotes() {
   return Promise.resolve(notes)

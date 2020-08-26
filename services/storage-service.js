@@ -1,7 +1,11 @@
+
 export const Storage = {
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,   
+    
 }
+
+
 
 function saveToStorage(key, val) {
     var str = JSON.stringify(val);
@@ -13,4 +17,3 @@ function loadFromStorage(key) {
     var val = JSON.parse(str)
     return val;
 }
-
