@@ -1,4 +1,4 @@
-export class MailDetails React.Component{
+export class MailDetails extends React.Component{
     
     state = {
     }
@@ -16,4 +16,3 @@ export class MailDetails React.Component{
     }
 }
 
-}
