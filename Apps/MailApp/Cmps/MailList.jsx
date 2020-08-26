@@ -1,3 +1,4 @@
+
 import { MailPreview } from "./MailPreview.jsx";
 
 
@@ -7,8 +8,7 @@ export class MailList extends React.Component {
         return (
             <ul className="mail-card" >
                 {this.props.mails.map((mail) => {
-                    return (<MailPreview key={mail.id}
-                        mail={mail} />)
+                    return (<MailPreview key={mail.id} mail={mail} ChangePage ={this.props.ChangePage} />)
                 })}
             </ul>
         )

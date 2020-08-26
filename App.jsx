@@ -21,8 +21,7 @@ export class App extends React.Component {
                         <NavBar />
                     </header>
                     <main className="page">
-                        <Switch>
-                            <Route component ={MailDetails} path="/mail/:mailId"/>
+                        <Switch>       
                             <Route component={MailApp} path="/mail" />
                             <Route component={NoteApp} path="/note" />
                             <Route component={Home} path="/" />

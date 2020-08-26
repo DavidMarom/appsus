@@ -1,39 +1,27 @@
-const { NavLink, withRouter } = ReactRouterDOM
+const { Link, Switch, Route } = ReactRouterDOM
 
-// import { Review } from "../cmps/Review.jsx";
-import { MainService } from "../../../services/main-service.js";
-import { mailService } from "../../../services/mail-service.js";
-import { Storage } from '../../../services/storage-service.js';
-import { MailList } from '../Cmps/MailList.jsx'
-
+import { MailInbox } from './MailInbox.jsx'
+import { MailDetails } from './Mail-details.jsx'
 
 export class MailApp extends React.Component {
-    state = {
-        mailToAdd: mailService.getEmptyMail(),
-        mails: [],
-        selectedMail: null
-    }
 
+    state = {
+        isInboxActive: true
+    }
 
     componentDidMount() {
-        this.loadMails();
+        this.ChangePage;
     }
 
-    loadMails() {
-        const mailsFromStorage = Storage.loadFromStorage('mails');
-        (!mailsFromStorage) ? (mailService.query()
-            .then(mails => {
-                this.setState({ mails })
-                Storage.saveToStorage('mails', mails)
-            })
-        ) : this.setState({ mails: mailsFromStorage })
+    ChangePage(ev){
+        console.log(ev);
     }
 
-  
+    
 
     render() {
-        const mails = this.state.mails;
-        const selectedMail = this.state.selectedMail;
+        const isInboxActive = this.state.isInboxActive;
+        console.log(isInboxActive);
         return (//switch --> route
             <div>
                 <div className="upper-mail-navbar">
@@ -49,10 +37,12 @@ export class MailApp extends React.Component {
                         <div>Drafts</div>
                         <div>opened</div>
                     </div>
-                    <div className="main-mail-container">
-                        {!selectedMail && <MailList mails={mails} />}
-                    </div>
+                    {(isInboxActive)?<MailInbox ChangePage={this.ChangePage}/> : <MailDetails ChangePage={this.ChangePage}/> }
                 </div>
+                <Switch>
+                    <Route component={MailInbox} path="/mail/inbox" />
+                    <Route component={MailDetails} path="/mail/:mailId" />
+                </Switch>
             </div>
         )
     }
