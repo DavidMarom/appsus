@@ -3,7 +3,8 @@ const { NavLink, withRouter } = ReactRouterDOM
 // import { Review } from "../cmps/Review.jsx";
 import { MainService } from "../services/main-service.js";
 import { mailService } from "../services/mail-service.js";
-import { Storage } from '../services/storage-service.js'
+import { Storage } from '../services/storage-service.js';
+import { MailList } from '../cmps/mail/MailList.jsx'
 
 
 export class MailApp extends React.Component {
@@ -29,27 +30,27 @@ export class MailApp extends React.Component {
     }
 
     render() {
-
+        const mails = this.state.mails;
+        const selectedMail = this.state.selectedMail;
         return (
             <div>
-            <div className="upper-mail-navbar">
-                <button>Choose/sortBy</button>
-                <button>Refresh-page</button>
-                <div>time</div>
-            </div>
-            <div className="main-mail-page">
-                <div className="main-mail-container">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum doloribus, necessitatibus, optio laudantium voluptatum voluptas quo quisquam ab dolore dicta accusantium officiis totam esse, delectus iusto repellendus molestias nam minus!
-                {/* {!selectedBook && <MailList books={books} />} */}
+                <div className="upper-mail-navbar">
+                    <button>Choose/sortBy</button>
+                    <button>Refresh-page</button>
+                    <div>time</div>
                 </div>
-                <div className="left-nav-bar">
-                    <div className="compose">+Compose</div>
-                    <div>Inbox</div>
-                    <div>Starred</div>
-                    <div>Drafts</div>
-                    <div>opened</div>
+                <div className="main-mail-page">
+                    <div className="left-nav-bar">
+                        <div className="compose">+Compose</div>
+                        <div>Inbox</div>
+                        <div>Starred</div>
+                        <div>Drafts</div>
+                        <div>opened</div>
+                    </div>
+                    <div className="main-mail-container">
+                        {!selectedMail && <MailList mails={mails} />}
+                    </div>
                 </div>
-            </div>
             </div>
         )
     }

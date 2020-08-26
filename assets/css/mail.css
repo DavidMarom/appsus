@@ -27,8 +27,8 @@
     display: -webkit-flex;
     display: flex;
     width: 100%!important;
-    -webkit-flex-direction: row-reverse;
-    flex-direction: row-reverse;
+    -webkit-flex-direction: row;
+    flex-direction: row;
 }
 
 .left-nav-bar{
