@@ -11,13 +11,12 @@ export class NoteCard extends React.Component {
 
     deleteCard = () => {
 
-        // var tmpArr = this.state.notes
-        // var tmpArr2 = this.setState.notes;
-
-        // this.setState({ notes: this.state.notes.filter((u) => u.id != this.props.content.id) })
-        // noteService.updateNotes(this.state.notes);
-        // this.props.history.push(`/note`)
-        console.log('a');
+        var FILTERED = this.props.allNotes.filter((u) => u.id != this.props.content.id) 
+        noteService.updateNotes(FILTERED);
+        
+        this.setState({ notes: FILTERED});
+        this.props.ln();
+        this.props.history.push(`/note`);
 
     }
 

@@ -1,22 +1,17 @@
-
-
 .note-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-
     width: auto;
     margin-left: 10px;
     border-radius: 7px 7px 0px 0px;
     transition: opacity 2s;
 }
 
-.control{
+.control {
     background: #ffffff;
     opacity: 85%;
-    padding:10px;
-
+    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -25,12 +20,11 @@
 .notes-container {
     display: grid;
     object-fit: contain;
-    padding:10px;
+    padding: 10px;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-
     /* display: flex;
     flex-direction: row;
 
@@ -47,8 +41,6 @@
 
 .note-card img {
     width: 100%
-
-
 }
 
 .aaa {
@@ -69,4 +61,31 @@
 
 .eee {
     background: #dda863;
+}
+
+.add-item-bar {
+    background-color: #ffffff;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #777777;
+    width: 80%;
+    padding: 7px;
+    box-shadow: 0 1px 2px 0 rgba(173, 183, 190, 0.3), 0 2px 6px 2px rgba(103, 108, 112, 0.15);
+    
+}
+
+.add-item-bar input {
+    border:none;
+    width: 100%;
+}
+
+.aaaa {
+    margin-top: auto;
+    margin-bottom: auto;
+    
 }
