@@ -18,12 +18,9 @@ export class AddItemBar extends React.Component {
 
     keyPressed = (ev) => {
         if (ev.keyCode === 13 ) this.createItem();
-
     }
 
     createItem = () => {
-        console.log('creating item');
-
         var prepareNote = {
             id: MainService.makeId(5),
             title: this.state.field,
@@ -44,23 +41,18 @@ export class AddItemBar extends React.Component {
         this.props.ln();
         this.state.field='';
         this.props.history.push(`/note`);
-
     }
-
     
     render() {
         // const { itemType } = this.state
         return (
-
             <div className="add-item-bar">
-                <input placeholder="Tite" value={this.state.field} onKeyUp={this.keyPressed} onChange={this.updateField} ></input>
-
+                <input placeholder="Add a new note" value={this.state.field} onKeyUp={this.keyPressed} onChange={this.updateField} ></input>
                 <i className="fab fa-youtube create-type"></i>
                 <i className="fas fa-list-ul create-type"></i>
                 <i className="far fa-image create-type"></i>
                 <i className="far fa-file-alt create-type"></i>
             </div>
-
         )
     }
 }

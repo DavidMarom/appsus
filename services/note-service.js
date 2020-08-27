@@ -9,27 +9,26 @@ export const noteService = {
 
 var notes = [];
 
-
 if (!Storage.loadFromStorage('notes') || Storage.loadFromStorage('notes') == '') { // if nothing in storage
   loadDump();
 } else {
   notes = Storage.loadFromStorage('notes');
 }
 
-function updateNotes(noteArr){
-  Storage.saveToStorage('notes',noteArr);
+function updateNotes(noteArr) {
+  Storage.saveToStorage('notes', noteArr);
   notes = noteArr;
 }
 
 function loadDump() {
   notes = [{
-    id: '54gg54',
-    title: 'Need to write a LOT of cards...',
-      body: 'Lets start...',
+      id: '54gg54',
+      title: 'Nevo\'s black list:',
+      body: '',
       bg: 'aaa',
       url: '',
       type: 'list',
-      list : ['item 1','item2'],
+      list: ['David Marom', 'Chen Edri','Another guy','and another'],
       video: ''
     }, {
       id: 's4gf54',
@@ -37,30 +36,30 @@ function loadDump() {
       body: 'Dont bump into cats this time',
       bg: 'eee',
       url: '',
-      type: 'list',
-      list : [],
+      type: 'text',
+      list: [],
       video: ''
 
     },
-   {
+    {
       id: '55g454',
       title: 'Work on the project',
       body: 'Push commit etc..',
       bg: 'ccc',
       url: '',
-      type: 'list',
-      list : [],
+      type: 'text',
+      list: [],
       video: ''
 
     },
-  {
+    {
       id: '54sdfgf4y',
       title: 'Donate blood',
       body: 'Lie about the unprotected sex questions this time...',
       bg: 'ddd',
       url: '',
-      type: 'list',
-      list : [],
+      type: 'text',
+      list: [],
       video: ''
 
     }, {
@@ -69,8 +68,8 @@ function loadDump() {
       body: 'We need cash...',
       bg: 'aaa',
       url: 'https://media.giphy.com/media/kclGU7Fgztb9HtcHRI/giphy.gif',
-      type: 'list',
-      list : [],
+      type: 'image',
+      list: [],
       video: ''
 
     }, {
@@ -79,13 +78,12 @@ function loadDump() {
       body: 'We dont want to go to prison, dont we?',
       bg: 'bbb',
       url: '',
-      type: 'list',
-      list : [],
+      type: 'text',
+      list: [],
       video: ''
 
     }
   ]
-
 
   Storage.saveToStorage('notes', notes);
 }
