@@ -11,7 +11,7 @@ export const mailService = {
 }
 
 var mails = [
-    { id: MainService.makeId(), sentFromUser:'Yoav', userBgc: makeRandomColor(), subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: getTime() },
+    { id: MainService.makeId(), sentFromUser:'Yoav', userBgc: '#'+ makeRandomColor(), subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: getTime() },
     { id: MainService.makeId(), sentFromUser:'Ziv', userBgc: makeRandomColor(), subject: 'Read', body: 'You should read this', isRead: false, sentAt: getTime() },
     { id: MainService.makeId(), sentFromUser:'Liel', userBgc: makeRandomColor(), subject: 'Wassap?', body: 'shalom :)', isRead: false, sentAt: getTime() },
     { id: MainService.makeId(), sentFromUser:'Maya', userBgc: makeRandomColor(), subject: 'user account', body: 'this mail was sent to previous account in order to continue send a massage back', isRead: false, sentAt: getTime() },
