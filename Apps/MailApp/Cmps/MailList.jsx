@@ -8,7 +8,8 @@ export class MailList extends React.Component {
         return (
             <ul className="mail-card" >
                 {this.props.mails.map((mail) => {
-                    return (<MailPreview key={mail.id} mail={mail} ChangePage ={this.props.ChangePage} />)
+                    return (<MailPreview key={mail.id} mail={mail} 
+                        getId={this.props.getId} />)
                 })}
             </ul>
         )

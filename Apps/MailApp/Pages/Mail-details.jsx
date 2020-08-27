@@ -17,7 +17,8 @@ export class MailDetails extends React.Component {
     }
 
     componentDidMount() {
-        const mailId = this.props.id;
+        console.log(this.props.match.params.mailId);
+        const mailId = this.props.match.params.mailId;
         mailService.getMailById(mailId)
             .then(mail => {
                 console.log(mail);
@@ -49,15 +50,15 @@ export class MailDetails extends React.Component {
     render() {
         // const { subject, body, sentAt } = this.state
         return (
-            (this.state.mail !== null)?(
-            <div>
-                <section className="main-details">
-                    <div className={(this.state.isRead) ? "open" : "close"}>XXXXXX</div>
-                    <div className="body">{this.state.mail.body}</div>
-                    <div className="sentAt">{this.state.mail.sentAt}</div>
-                </section>
-                <hr />
-            </div>):''
+            (this.state.mail !== null) ? (
+                <div>
+                    <section className="main-details">
+                        <div className="sent-at">{this.state.mail.sentAt}</div>
+                        <div className="sent-from">{this.state.mail.sentFromUser}</div>
+                        <div className="close subject">{this.state.mail.subject}</div>
+                        <div className="body">{this.state.mail.body}</div>
+                    </section>
+                </div>) : ''
         )
     }
 }
