@@ -10,6 +10,7 @@ export class MailDetails extends React.Component {
 
     state = {
         mail: null,
+        bgc:'#',
         subject: '',
         body: '',
         sentAt: '',
@@ -29,32 +30,28 @@ export class MailDetails extends React.Component {
             })
     }
 
-
     // getSub = (mail) => {
-    //     this.setState({ subject: mail.subject })
+        //     this.setState({ subject: mail.subject })
     // }
-
+    
     // getBody = (mail) => {
     //     this.setState({ body: mail.body })
     // }
 
 
     // getTime = (mail) => {
-    //     this.setState({ time: mail.sentAt })
-    // }
-
-
-
-
-
-    render() {
+        //     this.setState({ time: mail.sentAt })
+        // }
+        
+        
+        render() {
         // const { subject, body, sentAt } = this.state
         return (
             (this.state.mail !== null) ? (
                 <div>
                     <section className="main-details">
                         <div className="sent-at">{this.state.mail.sentAt}</div>
-                        <div className="sent-from">{this.state.mail.sentFromUser}</div>
+                        <div className="sent-from" style={{backgroundColor : "yellow"}}>{this.state.mail.sentFromUser.charAt(0)}</div>
                         <div className="close subject">{this.state.mail.subject}</div>
                         <div className="body">{this.state.mail.body}</div>
                     </section>

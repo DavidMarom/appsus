@@ -17,14 +17,21 @@ export class MailInbox extends React.Component {
     }
 
     loadMails() {
-        // const mailsFromStorage = Storage.loadFromStorage('mails');
-        // (!mailsFromStorage) ? (mailService.query()
-        const mails = mailService.query()
-            .then(mails => {
-                this.setState({ mails })
-                Storage.saveToStorage('mails', mails)
-            })
-        // ) : this.setState({ mails: mailsFromStorage })
+        const mailsFromStorage = Storage.loadFromStorage('mails');
+        (!mailsFromStorage) ? (
+            mailService.query()
+                .then(mails => {
+                    this.setState({ mails })
+                    Storage.saveToStorage('mails', mails)
+                })
+        ) : this.setState({ mails: mailsFromStorage })
+    }
+
+    changStateOfisRead=(mail)=>{
+        console.log(mail);
+        var currMailIdx = this.state.mails.findIndex(mailArr=> mailArr.id === mail.id)  
+        this.setState({ mails: this.state.mails[currMailIdx].isRead= true })
+        Storage.saveToStorage('mails', this.state.mails)
     }
 
 
@@ -33,7 +40,7 @@ export class MailInbox extends React.Component {
         const selectedMail = this.state.selectedMail;
         return (
             <div className="main-mail-container">
-                {!selectedMail && <MailList mails={mails} ChangePage={this.props.ChangePage}/>}
+                {!selectedMail && <MailList mails={mails} changStateOfisRead={this.changStateOfisRead}/>}
             </div>
         )
     }

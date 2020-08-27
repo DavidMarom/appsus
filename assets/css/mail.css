@@ -97,6 +97,7 @@
 .sentFromUser{
     width:30px;
     height: 30px;
+    margin: 10px 10px;
     border-radius: 50px;
     text-align: center;
 }
@@ -138,6 +139,14 @@
 .sent-at{
     align-items: center;
     flex-grow: 1;
+}
+
+.sent-from{
+    width:30px;
+    height: 30px;
+    margin: 10px 10px;
+    border-radius: 50px;
+    text-align: center;
 }
 
 .subject{
