@@ -24,7 +24,13 @@ export class NoteApp extends React.Component {
     render() {
         return (
             <div className="notes-container">
-                {this.state.notes.length && this.state.notes.map((note, iDx) => <NoteCard key={iDx} content={note} />)}
+                {this.state.notes.length && this.state.notes.map((note, iDx) => <NoteCard
+                    key={iDx}
+                    history={this.props.history}
+                    currentNoteId={iDx}
+                    content={note}
+                    allNotes={this.state.notes}
+                />)}
 
             </div>
         )

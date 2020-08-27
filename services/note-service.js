@@ -4,10 +4,10 @@ import {
 
 export const noteService = {
   getNotes,
+  updateNotes
 }
 
 var notes = [];
-
 
 
 if (!Storage.loadFromStorage('notes') || Storage.loadFromStorage('notes') == '') { // if nothing in storage
@@ -16,57 +16,71 @@ if (!Storage.loadFromStorage('notes') || Storage.loadFromStorage('notes') == '')
   notes = Storage.loadFromStorage('notes');
 }
 
+function updateNotes(noteArr){
+  Storage.saveToStorage('notes',noteArr);
+  // notes = noteArr;
+}
+
 function loadDump() {
   notes = [{
-      title: 'Need to write a LOT of cards...',
+    // id: '54gg54',
+    title: 'Need to write a LOT of cards...',
       body: 'Lets start...',
       bg: 'aaa',
-      url: 'https://media.giphy.com/media/kclGU7Fgztb9HtcHRI/giphy.gif'
+      url: ''
     }, {
+      // id: 's4gf54',
       title: 'Take Rexi out for a walk',
       body: 'Dont bump into cats this time',
       bg: 'eee',
       url: ''
 
-    }, {
-      title: 'Work on the project',
-      body: 'Push commit etc..',
-      bg: 'ccc',
-      url: ''
-
-    }, {
-      title: 'Donate blood',
-      body: 'Lie about the unprotected sex questions this time...',
-      bg: 'ddd',
-      url: ''
-
-    }, {
-      title: 'Rob a bank',
-      body: 'We need cash...',
-      bg: 'aaa',
-      url: 'https://media.giphy.com/media/BemKqR9RDK4V2/giphy.gif'
-
-    }, {
-      title: 'Escape the country',
-      body: 'We dont want to go to prison, dont we?',
-      bg: 'bbb',
-      url: ''
-
-    }, {
-      title: 'Keep filling out cards',
-      body: 'no one will do it for you',
-      bg: 'aaa',
-      url: ''
-
-    }, {
-      title: 'Last one',
-      body: 'Hurrey!',
-      bg: 'ddd',
-      url: ''
-
     }
+  //  {
+  //     id: '55g454',
+  //     title: 'Work on the project',
+  //     body: 'Push commit etc..',
+  //     bg: 'ccc',
+  //     url: ''
 
+  //   }, {
+  //     id: '54gf4y',
+  //     title: 'Donate blood',
+  //     body: 'Lie about the unprotected sex questions this time...',
+  //     bg: 'ddd',
+  //     url: ''
+
+  //   }, {
+  //     id: '54f3d4',
+  //     title: 'Rob a bank',
+  //     body: 'We need cash...',
+  //     bg: 'aaa',
+  //     url: ''
+
+  //   }, {
+  //     id: '5jdj44',
+  //     title: 'Escape the country',
+  //     body: 'We dont want to go to prison, dont we?',
+  //     bg: 'bbb',
+  //     url: ''
+
+  //   }, {
+  //     id: '54gsw4',
+  //     title: 'Keep filling out cards',
+  //     body: 'no one will do it for you',
+  //     bg: 'aaa',
+  //     url: ''
+
+  //   }, {
+  //     id: 'jjjg54',
+  //     title: 'Last one',
+  //     body: 'Hurrey!',
+  //     bg: 'ddd',
+  //     url: ''
+  //   }
   ]
+
+
   Storage.saveToStorage('notes', notes);
 }
 
