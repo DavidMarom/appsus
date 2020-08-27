@@ -10,24 +10,28 @@ export const mailService = {
     addMail,
     togglePages,
     makeRandomColor,
-    findMailIndex
+    findMailIndex,
+    deleteMail,
+    markMailAsStar,
+    changeToRead,
+    getMailsForDisplay
 }
 
 var mails = [
-    { id: MainService.makeId(), sentFromUser: 'Yoav', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: getTime(),isStarred: false },
-    { id: MainService.makeId(), sentFromUser: 'Ziv', userBgc: '#' + makeRandomColor(), subject: 'Read', body: 'You should read this', isRead: false, sentAt: getTime(),isStarred: false },
-    { id: MainService.makeId(), sentFromUser: 'Liel', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'shalom :)', isRead: false, sentAt: getTime(),isStarred: false },
-    { id: MainService.makeId(), sentFromUser: 'Maya', userBgc: '#' + makeRandomColor(), subject: 'user account', body: 'this mail was sent to previous account in order to continue send a massage back', isRead: false, sentAt: getTime(),isStarred: false },
-    { id: MainService.makeId(), sentFromUser: 'Shay', userBgc: '#' + makeRandomColor(), subject: 'Bituach Leumi', body: 'hi Chen, you have unread massages. please enter your private zone in order to read', isRead: false, sentAt: getTime(),isStarred: false },
-    { id: MainService.makeId(), sentFromUser: 'Yuval', userBgc: '#' + makeRandomColor(), subject: 'Hacnest', body: 'election soon? ', isRead: false, sentAt: getTime(),isStarred: false },
-    { id: MainService.makeId(), sentFromUser: 'Lior', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up2!', isRead: false, sentAt: getTime(),isStarred: false },
-    { id: MainService.makeId(), sentFromUser: 'IMBGIN', userBgc: '#' + makeRandomColor(), subject: 'Hello!!!', body: 'Hello, thank you for becoming part of the IMGBIN community.IMGBIN contains over 12 million free to download transparent PNG resources. With your current account you can download 2 resources per day. If you need to download more than 2 images per day we recommend upgrading to a PREMIUM account', isRead: false, sentAt: getTime(),isStarred: false },
-    { id: MainService.makeId(), sentFromUser: 'Rotem', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up4!', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] , sentFromUser: 'Yoav', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] ,sentFromUser: 'Ziv', userBgc: '#' + makeRandomColor(), subject: 'Read', body: 'You should read this', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] ,sentFromUser: 'Liel', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'shalom :)', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] ,sentFromUser: 'Maya', userBgc: '#' + makeRandomColor(), subject: 'user account', body: 'this mail was sent to previous account in order to continue send a massage back', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] , sentFromUser: 'Shay', userBgc: '#' + makeRandomColor(), subject: 'Bituach Leumi', body: 'hi Chen, you have unread massages. please enter your private zone in order to read', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] ,sentFromUser: 'Yuval', userBgc: '#' + makeRandomColor(), subject: 'Hacnest', body: 'election soon? ', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] ,sentFromUser: 'Lior', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up2!', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] ,sentFromUser: 'IMBGIN', userBgc: '#' + makeRandomColor(), subject: 'Hello!!!', body: 'Hello, thank you for becoming part of the IMGBIN community.IMGBIN contains over 12 million free to download transparent PNG resources. With your current account you can download 2 resources per day. If you need to download more than 2 images per day we recommend upgrading to a PREMIUM account', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), name:['inbox'] , sentFromUser: 'Rotem', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up4!', isRead: false, sentAt: getTime(),isStarred: false },
 ]
 
 function getMails() {
     const mailsFromStorage = Storage.loadFromStorage('mails');
-    if (!mailsFromStorage) {
+    if (!mailsFromStorage || mailsFromStorage.length === 0) {
         query()
             .then(mails => {
                 Storage.saveToStorage('mails', mails)
@@ -40,7 +44,7 @@ function getEmptyMail() {
     return {id: MainService.makeId(),sentFromUser: '',userBgc: '#' + makeRandomColor(), subject: '', body: '', isRead: false, sentAt: getTime() }
 }
 
-function query() {
+function query() {// returne relelvant mails
     return Promise.resolve(mails)
 }
 
@@ -75,4 +79,38 @@ function makeRandomColor() {
 function findMailIndex(mail){
     const mails = getMails();
     return mails.findIndex(currMail=> currMail.id === mail.id)
+}
+
+function  deleteMail(id){
+    let mails = getMails();
+    mails = mails.filter(mail=>mail.id !== id)
+    Storage.saveToStorage('mails',mails)
+    return Promise.resolve(mails)
+}
+
+function changeToRead(mail){
+    mail.isRead = !mail.isRead;
+    let mails = getMails();
+    let currIdx = findMailIndex(mail);
+    mails.splice(currIdx,1, mail);
+    Storage.saveToStorage('mails', mails)
+    return mails;
+
+}
+
+
+function markMailAsStar(mail){
+    mail.isStarred = !mail.isStarred;
+    const mails = getMails();
+    const currIdx= findMailIndex(mail);
+    mails.splice(currIdx,1, mail);
+    Storage.saveToStorage('mails', mails)
+    return Promise.resolve(mails);
+}
+
+function getMailsForDisplay(filterBy){
+    console.log('fB-',filterBy);
+    let mails = getMails();
+    mails = mails.filter(mail => mail.name.toLowerCase().includes(filterBy.toLowerCase()))
+    return Promise.resolve(mails);
 }

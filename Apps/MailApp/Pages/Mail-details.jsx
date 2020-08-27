@@ -1,9 +1,7 @@
 const { withRouter } = ReactRouterDOM
 const { Link } = ReactRouterDOM
 
-import { MailPreview } from '../Cmps/MailPreview.jsx'
 import { mailService } from '../../../services/mail-service.js'
-import { Storage } from '../../../services/storage-service.js'
 
 
 export class MailDetails extends React.Component {
@@ -24,28 +22,10 @@ export class MailDetails extends React.Component {
             .then(mail => {
                 console.log(mail);
                 this.setState({ mail })
-                // this.getSub({ mail })
-                // this.getBody({ mail })
-                // this.getTime({ mail })
             })
     }
-
-    // getSub = (mail) => {
-        //     this.setState({ subject: mail.subject })
-    // }
-    
-    // getBody = (mail) => {
-    //     this.setState({ body: mail.body })
-    // }
-
-
-    // getTime = (mail) => {
-        //     this.setState({ time: mail.sentAt })
-        // }
-        
         
         render() {
-        // const { subject, body, sentAt } = this.state
         return (
             (this.state.mail !== null) ? (
                 <div>

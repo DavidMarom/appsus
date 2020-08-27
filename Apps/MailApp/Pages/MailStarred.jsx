@@ -1,6 +1,6 @@
 import { MailPreview } from '../Cmps/MailPreview.jsx'
 import { mailService } from '../../../services/mail-service.js'
-import { Storage } from '../../../services/storage-service.js'
+
 
 export class MailStarred extends React.Component {
 
