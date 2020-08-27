@@ -9,7 +9,8 @@ export class MailList extends React.Component {
             <ul className="mail-card" >
                 {this.props.mails.map((mail) => {
                     return (<MailPreview key={mail.id} mail={mail} 
-                        changStateOfisRead={this.props.changStateOfisRead} />)
+                        changStateOfisRead={this.props.changStateOfisRead} 
+                        changeToImportantMail={this.props.changeToImportantMail}/>)
                 })}
             </ul>
         )
