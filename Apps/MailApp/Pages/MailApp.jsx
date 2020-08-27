@@ -3,6 +3,7 @@ const { Link, Switch, Route } = ReactRouterDOM
 import { MailInbox } from './MailInbox.jsx'
 import { MailDetails } from './Mail-details.jsx'
 import { OpenMail } from '../Cmps/OpenMail.jsx';
+import { MailAdd } from './MailAdd.jsx'
 
 export class MailApp extends React.Component {
 
@@ -32,13 +33,14 @@ export class MailApp extends React.Component {
                 </div>
                 <div className="main-mail-page">
                     <div className="left-nav-bar">
-                        <div className="compose">+Compose</div>
+                        <Link to ={`/mail/add`} className="compose">+Compose</Link>
                         <div>Inbox</div>
                         <div>Starred</div>
                         <div>Drafts</div>
                         <OpenMail/>
                     </div>
                     <Switch>
+                        <Route component ={MailAdd} path ="/mail/add"/>
                         <Route component={MailInbox} path="/mail/inbox" getId={this.getId}/>
                         <Route component={MailDetails} path="/mail/:mailId" id={this.state.currPageId}/>
                     </Switch>
