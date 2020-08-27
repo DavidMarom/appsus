@@ -9,19 +9,20 @@ export const mailService = {
     getMailById,
     addMail,
     togglePages,
-    makeRandomColor
+    makeRandomColor,
+    findMailIndex
 }
 
 var mails = [
-    { id: MainService.makeId(), sentFromUser: 'Yoav', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: getTime() },
-    { id: MainService.makeId(), sentFromUser: 'Ziv', userBgc: '#' + makeRandomColor(), subject: 'Read', body: 'You should read this', isRead: false, sentAt: getTime() },
-    { id: MainService.makeId(), sentFromUser: 'Liel', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'shalom :)', isRead: false, sentAt: getTime() },
-    { id: MainService.makeId(), sentFromUser: 'Maya', userBgc: '#' + makeRandomColor(), subject: 'user account', body: 'this mail was sent to previous account in order to continue send a massage back', isRead: false, sentAt: getTime() },
-    { id: MainService.makeId(), sentFromUser: 'Shay', userBgc: '#' + makeRandomColor(), subject: 'Bituach Leumi', body: 'hi Chen, you have unread massages. please enter your private zone in order to read', isRead: false, sentAt: getTime() },
-    { id: MainService.makeId(), sentFromUser: 'Yuval', userBgc: '#' + makeRandomColor(), subject: 'Hacnest', body: 'election soon? ', isRead: false, sentAt: getTime() },
-    { id: MainService.makeId(), sentFromUser: 'Lior', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up2!', isRead: false, sentAt: getTime() },
-    { id: MainService.makeId(), sentFromUser: 'IMBGIN', userBgc: '#' + makeRandomColor(), subject: 'Hello!!!', body: 'Hello, thank you for becoming part of the IMGBIN community.IMGBIN contains over 12 million free to download transparent PNG resources. With your current account you can download 2 resources per day. If you need to download more than 2 images per day we recommend upgrading to a PREMIUM account', isRead: false, sentAt: getTime() },
-    { id: MainService.makeId(), sentFromUser: 'Rotem', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up4!', isRead: false, sentAt: getTime() },
+    { id: MainService.makeId(), sentFromUser: 'Yoav', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), sentFromUser: 'Ziv', userBgc: '#' + makeRandomColor(), subject: 'Read', body: 'You should read this', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), sentFromUser: 'Liel', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'shalom :)', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), sentFromUser: 'Maya', userBgc: '#' + makeRandomColor(), subject: 'user account', body: 'this mail was sent to previous account in order to continue send a massage back', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), sentFromUser: 'Shay', userBgc: '#' + makeRandomColor(), subject: 'Bituach Leumi', body: 'hi Chen, you have unread massages. please enter your private zone in order to read', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), sentFromUser: 'Yuval', userBgc: '#' + makeRandomColor(), subject: 'Hacnest', body: 'election soon? ', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), sentFromUser: 'Lior', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up2!', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), sentFromUser: 'IMBGIN', userBgc: '#' + makeRandomColor(), subject: 'Hello!!!', body: 'Hello, thank you for becoming part of the IMGBIN community.IMGBIN contains over 12 million free to download transparent PNG resources. With your current account you can download 2 resources per day. If you need to download more than 2 images per day we recommend upgrading to a PREMIUM account', isRead: false, sentAt: getTime(),isStarred: false },
+    { id: MainService.makeId(), sentFromUser: 'Rotem', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up4!', isRead: false, sentAt: getTime(),isStarred: false },
 ]
 
 function getMails() {
@@ -69,4 +70,9 @@ function togglePages(bool) {
 
 function makeRandomColor() {
     return Math.floor(Math.random() * 16777215).toString(16);
+}
+
+function findMailIndex(mail){
+    const mails = getMails();
+    return mails.findIndex(currMail=> currMail.id === mail.id)
 }

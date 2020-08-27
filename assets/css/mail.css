@@ -127,6 +127,28 @@
     font-weight: bold;
 }
 
+.star-on
+{
+    content:'★';
+    color:gold;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    background-color: gold;
+}
+
+.star-off
+{
+    width: 40px;
+    height: 40px;
+    content:'★';
+    color:#ccc;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
 /* details mail page */
 
 .main-details{
