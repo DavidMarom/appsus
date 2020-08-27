@@ -28,11 +28,28 @@ export class NoteApp extends React.Component {
         this.setState({ notes: Storage.loadFromStorage('notes') })
     }
 
+    createItem = () => {
+        console.log('creating item');
+
+        var prepareNote = {
+            id: '54345gg54',
+            title: 'Need to write a LOT of cards...',
+            body: 'Lets start...',
+            bg: 'aaa',
+            url: '',
+            type: 'list',
+            list: ['item 1', 'item2'],
+            video: ''
+        };
+
+        this.state.notes({ notes: notes.push(prepareNote) })
+    }
+
     render() {
 
         return (
             <div className="note-app-wrapper">
-                <AddItemBar />
+                <AddItemBar createItem={this.createItem} />
 
                 <div className="notes-container">
                     {this.state.notes.length && this.state.notes.map((note, iDx) => <NoteCard

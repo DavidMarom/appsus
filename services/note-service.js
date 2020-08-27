@@ -27,13 +27,19 @@ function loadDump() {
     title: 'Need to write a LOT of cards...',
       body: 'Lets start...',
       bg: 'aaa',
-      url: ''
+      url: '',
+      type: 'list',
+      list : ['item 1','item2'],
+      video: ''
     }, {
       id: 's4gf54',
       title: 'Take Rexi out for a walk',
       body: 'Dont bump into cats this time',
       bg: 'eee',
-      url: ''
+      url: '',
+      type: 'list',
+      list : [],
+      video: ''
 
     },
    {
@@ -41,7 +47,10 @@ function loadDump() {
       title: 'Work on the project',
       body: 'Push commit etc..',
       bg: 'ccc',
-      url: ''
+      url: '',
+      type: 'list',
+      list : [],
+      video: ''
 
     },
   {
@@ -49,37 +58,32 @@ function loadDump() {
       title: 'Donate blood',
       body: 'Lie about the unprotected sex questions this time...',
       bg: 'ddd',
-      url: ''
+      url: '',
+      type: 'list',
+      list : [],
+      video: ''
 
     }, {
       id: '54fsdf3d4',
       title: 'Rob a bank',
       body: 'We need cash...',
       bg: 'aaa',
-      url: 'https://media.giphy.com/media/kclGU7Fgztb9HtcHRI/giphy.gif'
+      url: 'https://media.giphy.com/media/kclGU7Fgztb9HtcHRI/giphy.gif',
+      type: 'list',
+      list : [],
+      video: ''
 
     }, {
       id: '5jdjerg44',
       title: 'Escape the country',
       body: 'We dont want to go to prison, dont we?',
       bg: 'bbb',
-      url: ''
+      url: '',
+      type: 'list',
+      list : [],
+      video: ''
 
     }
-  // , {
-  //     id: 'erggfg',
-  //     title: 'Keep filling out cards',
-  //     body: 'no one will do it for you',
-  //     bg: 'aaa',
-  //     url: ''
-
-  //   }, {
-  //     id: 'jjjg54',
-  //     title: 'Last one',
-  //     body: 'Hurrey!',
-  //     bg: 'ddd',
-  //     url: ''
-  //   }
   ]
 
 

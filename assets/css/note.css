@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
 }
 
 .notes-container {
@@ -48,19 +49,19 @@
 }
 
 .bbb {
-    background: #2d88d3;
+    background: #85bae6;
 }
 
 .ccc {
-    background: #d32daf;
+    background: #e779cf;
 }
 
 .ddd {
-    background: #b063dd;
+    background: #bc94e2;
 }
 
 .eee {
-    background: #dda863;
+    background: #eccd76;
 }
 
 .add-item-bar {
@@ -84,8 +85,14 @@
     width: 100%;
 }
 
-.aaaa {
+input:focus {
+    border:0;
+    outline: none;
+
+}
+.create-type {
     margin-top: auto;
     margin-bottom: auto;
+    margin-right: 20px;
     
 }
