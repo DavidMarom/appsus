@@ -54,6 +54,7 @@ export class MailDetails extends React.Component {
                 <div>
                     <section className="main-details">
                         <div className="sent-at">{this.state.mail.sentAt}</div>
+                        <div className="sent-from">{this.state.mail.sentFromUser}</div>
                         <div className="close subject">{this.state.mail.subject}</div>
                         <div className="body">{this.state.mail.body}</div>
                     </section>

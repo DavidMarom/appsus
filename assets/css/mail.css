@@ -94,7 +94,13 @@
     position: relative;
 }
 
-.subject
+.sentFromUser{
+    background-color: red;
+    width:30px;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+}
 
 .sent-at-inbox{
     flex-grow: 1;
