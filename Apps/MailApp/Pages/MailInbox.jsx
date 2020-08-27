@@ -17,14 +17,8 @@ export class MailInbox extends React.Component {
     }
 
     loadMails() {
-        const mailsFromStorage = Storage.loadFromStorage('mails');
-        (!mailsFromStorage) ? (
-            mailService.query()
-                .then(mails => {
-                    this.setState({ mails })
-                    Storage.saveToStorage('mails', mails)
-                })
-        ) : this.setState({ mails: mailsFromStorage })
+        const mails = mailService.getMails()
+        this.setState({mails: mails})
     }
 
     changStateOfisRead=(mail)=>{
