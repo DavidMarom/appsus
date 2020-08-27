@@ -1,25 +1,53 @@
 import { noteService } from "../../../services/note-service.js";
+import { MainService } from "../../../services/main-service.js";
+
 export class AddItemBar extends React.Component {
 
     state = {
         type: 'text',
-        field: ''
+        field: '',
+        notes:''
     }
 
     componentDidMount() {
     }
-
 
     updateField = (ev) => {
         this.setState({ field: ev.target.value });
     }
 
     keyPressed = (ev) => {
-        if (ev.keyCode === 13 ) this.props.createItem();
+        if (ev.keyCode === 13 ) this.createItem();
 
     }
 
+    createItem = () => {
+        console.log('creating item');
 
+        var prepareNote = {
+            id: MainService.makeId(5),
+            title: this.state.field,
+            body: '<Click to edit>',
+            bg: 'aaa',
+            url: '',
+            type: this.state.type ,
+            list: ['item 1', 'item2'],
+            video: ''
+        };
+
+        var prepareNewAllNotes = this.props.allNotes;
+        prepareNewAllNotes.push(prepareNote);
+
+        noteService.updateNotes(prepareNewAllNotes);
+        
+        this.setState({ notes: prepareNewAllNotes});
+        this.props.ln();
+        this.state.field='';
+        this.props.history.push(`/note`);
+
+    }
+
+    
     render() {
         // const { itemType } = this.state
         return (
