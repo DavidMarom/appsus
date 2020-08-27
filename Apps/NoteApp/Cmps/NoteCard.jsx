@@ -4,7 +4,7 @@ export class NoteCard extends React.Component {
     state = {
         notes: '',
         colorModal: 'hide',
-        selectedColor: 'ttt'
+        selectedColor: 'fff'
     }
 
     componentDidMount() {
@@ -38,16 +38,35 @@ export class NoteCard extends React.Component {
 
     render() {
         const { note } = this.state;
+
+
         return (
 
             <div className={`note-card ${this.props.content.bg}`}>
-
                 <div className="upper-part">
                     <h3>{!note && this.props.content.title}</h3>
                     <p>{this.props.content.body}</p>
                     <img src={`${this.props.content.url}`}></img>
 
-                    <p>{this.props.content.type}</p>
+                    {this.props.content.type === 'list' ?
+
+                        this.props.content.list.map((item, idx) =>
+
+                            <div key={idx} className="list-in-card">
+                                <div >{item}</div>
+
+                                <div className="btn">x</div>
+
+
+                            </div>
+                        )
+
+
+                        : null}
+
+
+
+                    {/* <p>{this.props.content.type}</p> */}
                 </div>
 
 

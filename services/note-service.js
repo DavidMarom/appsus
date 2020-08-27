@@ -37,7 +37,7 @@ function loadDump() {
       body: 'Dont bump into cats this time',
       bg: 'eee',
       url: '',
-      type: 'list',
+      type: 'text',
       list : [],
       video: ''
 
@@ -48,7 +48,7 @@ function loadDump() {
       body: 'Push commit etc..',
       bg: 'ccc',
       url: '',
-      type: 'list',
+      type: 'text',
       list : [],
       video: ''
 
@@ -59,7 +59,7 @@ function loadDump() {
       body: 'Lie about the unprotected sex questions this time...',
       bg: 'ddd',
       url: '',
-      type: 'list',
+      type: 'text',
       list : [],
       video: ''
 
@@ -69,7 +69,7 @@ function loadDump() {
       body: 'We need cash...',
       bg: 'aaa',
       url: 'https://media.giphy.com/media/kclGU7Fgztb9HtcHRI/giphy.gif',
-      type: 'list',
+      type: 'image',
       list : [],
       video: ''
 
@@ -79,7 +79,7 @@ function loadDump() {
       body: 'We dont want to go to prison, dont we?',
       bg: 'bbb',
       url: '',
-      type: 'list',
+      type: 'text',
       list : [],
       video: ''
 
