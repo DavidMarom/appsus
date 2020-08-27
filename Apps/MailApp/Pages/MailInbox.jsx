@@ -18,20 +18,20 @@ export class MailInbox extends React.Component {
 
     loadMails() {
         const mails = mailService.getMails()
-        this.setState({mails: mails})
+        this.setState({ mails: mails })
     }
 
-    changStateOfisRead=(mail)=>{
+    changStateOfisRead = (mail) => {
         console.log(mail);
         var currMailIdx = mailService.findMailIndex(mail)
-        this.setState({ mails: this.state.mails[currMailIdx].isRead= true })
+        this.setState({ mails: this.state.mails[currMailIdx].isRead = true })
         Storage.saveToStorage('mails', this.state.mails)
     }
 
-    changeToImportantMail = (mail)=>{
+    changeToImportantMail = (mail) => {
         console.log(mail);
         var currMailIdx = mailService.findMailIndex(mail)
-        this.setState({ mails: this.state.mails[currMailIdx].isStarred= true })
+        this.setState({ mails: this.state.mails[currMailIdx].isStarred = true })
         Storage.saveToStorage('mails', this.state.mails)
     }
 
@@ -41,10 +41,9 @@ export class MailInbox extends React.Component {
         const selectedMail = this.state.selectedMail;
         return (
             <div className="main-mail-container">
-                {!selectedMail && <MailList mails={mails} 
-                changStateOfisRead={this.changStateOfisRead}
-                changeToImportantMail = {this.changeToImportantMail}/>}
+                {!selectedMail && <MailList mails={mails}
+                    changStateOfisRead={this.changStateOfisRead}
+                    changeToImportantMail={this.changeToImportantMail} />}
             </div>
         )
     }
-}
