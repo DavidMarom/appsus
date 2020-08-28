@@ -9,7 +9,6 @@ export class Notification extends React.Component {
     unsubscribe;
     componentDidMount() {
         this.unsubscribe = eventBus.on('notify', (data) => {
-            console.log(data);
             this.setState({ isShown: true, msg: data.msg, type: data.type })
             setTimeout(() => this.setState({ isShown: false }), 3000)
         })
