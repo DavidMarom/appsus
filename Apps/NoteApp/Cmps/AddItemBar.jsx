@@ -6,7 +6,7 @@ export class AddItemBar extends React.Component {
     state = {
         type: 'text',
         field: '',
-        notes:''
+        notes: ''
     }
 
     componentDidMount() {
@@ -17,7 +17,7 @@ export class AddItemBar extends React.Component {
     }
 
     keyPressed = (ev) => {
-        if (ev.keyCode === 13 ) this.createItem();
+        if (ev.keyCode === 13) this.createItem();
     }
 
     createItem = () => {
@@ -26,32 +26,41 @@ export class AddItemBar extends React.Component {
             title: this.state.field,
             body: '<Click to edit>',
             bg: 'aaa',
-            url: '',
-            type: this.state.type ,
+            url: this.state.field,
+            type: this.state.type,
             list: ['item 1', 'item2'],
-            video: ''
+            video: this.state.field
         };
 
         var prepareNewAllNotes = this.props.allNotes;
         prepareNewAllNotes.push(prepareNote);
 
         noteService.updateNotes(prepareNewAllNotes);
-        
-        this.setState({ notes: prepareNewAllNotes});
+
+        this.setState({ notes: prepareNewAllNotes });
         this.props.ln();
-        this.state.field='';
+        this.state.field = '';
         this.props.history.push(`/note`);
     }
-    
+
+
+    setNoteType = (ev) => {
+        this.setState({ type: ev.target.getAttribute('data-id') })
+        this.setState({ field: ev.target.getAttribute('data-id') })
+
+        console.log(this.state.type)
+    }
+
     render() {
         // const { itemType } = this.state
         return (
             <div className="add-item-bar">
                 <input placeholder="Add a new note" value={this.state.field} onKeyUp={this.keyPressed} onChange={this.updateField} ></input>
-                <i className="fab fa-youtube create-type"></i>
-                <i className="fas fa-list-ul create-type"></i>
-                <i className="far fa-image create-type"></i>
-                <i className="far fa-file-alt create-type"></i>
+
+                <button className="set-type-btn" onClick={this.setNoteType}><i className="fab fa-youtube create-type" data-id="youtube"></i></button>
+                <button className="set-type-btn" onClick={this.setNoteType}><i className="fas fa-list-ul create-type" data-id="list"></i></button>
+                <button className="set-type-btn" onClick={this.setNoteType}><i className="far fa-image create-type" data-id="image"></i></button>
+                <button className="set-type-btn" onClick={this.setNoteType}><i className="far fa-file-alt create-type" data-id="text"></i></button>
             </div>
         )
     }

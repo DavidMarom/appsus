@@ -6,7 +6,7 @@ export class Home extends React.Component {
         return (
             <section>
                 <div className="hero-img">
-                <NavLink to="/mail" className="bigBtn">Start ></NavLink>
+                <NavLink to="/mail" className="bigBtn">Start {">"}</NavLink>
 
                 </div>
 
