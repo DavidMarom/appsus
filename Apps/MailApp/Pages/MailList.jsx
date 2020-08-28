@@ -3,18 +3,22 @@
 import { mailService } from "../../../services/mail-service.js";
 import { MailPreview } from "../Cmps/MailPreview.jsx";
 
+
 export class MailList extends React.Component {
     state = {
         filterBy:'',
+        filterSpecificMails:'',
         mailToAdd: mailService.getEmptyMail(),
         mails: [],
     }
 
     componentDidMount() {
         const filterBy = this.props.match.params.filterBy;
-        this.setState({filterBy});
+        const filterSpecificMails = this.props.match.params.filterSpecificMails;
+        console.log(filterSpecificMails);
+        this.setState({filterBy, filterSpecificMails});
         console.log('props inbox-', this.props);
-        this.getMailsForDisplay(filterBy);
+        this.getMailsForDisplay(filterBy, this.state.filterSpecificMails);
     }
 
     componentDidUpdate(prevProps){
@@ -22,14 +26,16 @@ export class MailList extends React.Component {
        const now =  this.props.match.params.filterBy;
        if (now !== prev){
         this.setState({filterBy :now});
-        // this.props.getMailsForDisplay;
-        this.getMailsForDisplay();
+        this.getMailsForDisplay(now, this.state.filterSpecificMails);
        }
     }
 
-    getMailsForDisplay() {
-        const mails = mailService.getMails()
-        this.setState({ mails: mails })
+
+    getMailsForDisplay = (filterBy) =>{
+        mailService.getMailsForDisplay(filterBy)
+        .then(mails=> {
+            this.setState({mails})
+        })
     }
 
     changStateOfisRead = (mail) => {
