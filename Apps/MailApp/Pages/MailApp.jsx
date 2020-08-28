@@ -4,8 +4,6 @@ import { MailList } from './MailList.jsx'
 import { MailDetails } from './Mail-details.jsx'
 import { OpenMail } from '../Cmps/OpenMail.jsx';
 import { MailAdd } from './MailAdd.jsx'
-import { MailDraft } from './MailDraft.jsx'
-import { MailStarred } from './MailStarred.jsx'
 import { MailFilter } from '../Cmps/MailFilter.jsx'
 
 export class MailApp extends React.Component {
@@ -55,8 +53,6 @@ export class MailApp extends React.Component {
                     </div>
                     <Switch>
                         <Route component={MailList} from path="/mail/list/:filterBy" />
-                        <Route component={MailStarred} path="/mail/starred" />
-                        <Route component={MailDraft} path="/mail/draft" />
                         <Route component={MailAdd} path="/mail/add" />
                         <Route component={MailDetails} path="/mail/:mailId" id={this.state.currPageId} />
                     </Switch>

@@ -15,9 +15,7 @@ export class MailList extends React.Component {
     componentDidMount() {
         const filterBy = this.props.match.params.filterBy;
         const filterSpecificMails = this.props.match.params.filterSpecificMails;
-        console.log(filterSpecificMails);
         this.setState({filterBy, filterSpecificMails});
-        console.log('props inbox-', this.props);
         this.getMailsForDisplay(filterBy, this.state.filterSpecificMails);
     }
 
@@ -65,7 +63,6 @@ export class MailList extends React.Component {
     render() {
         const { mails } = this.state;
         if (!mails || !mails.length) return <div>Your mail box is empty</div>
-        console.log('ListActive');
         return (
             <div className="main-mail-container">
                 <ul className="mail-card" >
