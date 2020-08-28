@@ -20,14 +20,13 @@ export class NoteCard extends React.Component {
     }
 
     removeListItem = (ev) =>{
-        console.log(ev.target.getAttribute("data-id"))
         var ALLNOTES = this.props.allNotes
 
         var tempList = ALLNOTES[this.props.currentNoteId].list;
-        var tempList2 = tempList.splice(ev.target.getAttribute("data-id"),1);
+        tempList.splice(ev.target.getAttribute("data-id"),1);
 
         var ALLNOTES = this.props.allNotes
-        ALLNOTES[this.props.currentNoteId].list = tempList2;
+        ALLNOTES[this.props.currentNoteId].list = tempList;
         noteService.updateNotes(ALLNOTES);
         this.setState({ notes: ALLNOTES });
         this.props.ln();
