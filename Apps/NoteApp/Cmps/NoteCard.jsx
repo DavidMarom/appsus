@@ -39,7 +39,7 @@ export class NoteCard extends React.Component {
     }
 
     openColorSelect = () => {
-        this.setState({ colorModal: 'show' });
+        this.setState({ colorModal: 'color-show' });
     }
 
     updateColor = (ev) => {
