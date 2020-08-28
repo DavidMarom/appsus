@@ -31,7 +31,7 @@ export class MailDetails extends React.Component {
 
     render() {
         if (this.state.mail === null) return <div>on load..</div>
-        const { id, sentFromUser, sentAt, subject, body } = this.state.mail
+        const { id, sentFromUser, sentAt, subject, body, replies } = this.state.mail
         return (
             (this.state.mail !== null) ? (
                 <div>
@@ -46,6 +46,16 @@ export class MailDetails extends React.Component {
                             <div className="body">{body}</div>
                             <Link to={`/mail/${id}/reply`} className="edit">Reply</Link>
                         </div>
+                            {replies.map((mail)=>{ 
+                                return( <div className="replies" key={mail.id}>
+                                <div>
+                                  <div className="sent-from" style={{ backgroundColor: "yellow" }}>{mail.sentFromUser.charAt(0)}</div>
+                                  <div className="sent-at">{mail.sentAt}</div>
+                              </div>
+                                  <div className="body">{mail.body}</div>
+                                  <Link to={`/mail/${id}/reply`} className="edit">Reply</Link>
+                                  </div>
+                                  )})}
                         <Switch>
                             <Route component={MailReply} path={`/mail/${id}/reply`} id={this.state.currPageId} />
                         </Switch>

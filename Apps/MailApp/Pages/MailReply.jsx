@@ -51,7 +51,7 @@ export class MailReply extends React.Component {
                                 <div>
                                         <section className="main-details">
                                                 <div>
-                                                        <div className="sent-from" style={{ backgroundColor: "yellow" }}>{sentFromUser.charAt(0)}}</div>
+                                                        <div className="sent-from" style={{ backgroundColor: "yellow" }}>{sentFromUser.charAt(0)}</div>
                                                         <div className="sent-at">{sentAt}</div>
                                                 </div>
                                                 <div className="close subject">{subject}</div>
