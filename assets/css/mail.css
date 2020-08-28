@@ -8,7 +8,7 @@
 /* HELPERS */
 
 hr{
-    border:  1px solid rgba(212, 210, 203, 0.836);
+    border:  1px solid rgba(241, 241, 241, 0.836);
     margin:4px;
 }
 
@@ -128,7 +128,7 @@ flex-direction: column;
 .left-nav-bar:hover{
     background-color: rgb(187, 133, 133, 0.5);
     border-radius:12px;
-    transition: 0.7s;
+    transition: 0.2s;
 }
 
 .left-nav-bar >*{
@@ -194,7 +194,7 @@ flex-direction: column;
 .main-mail-container:hover{
     background-color: rgb(187, 133, 133, 0.5);
     border-radius:12px;
-    transition: 0.7s;
+    transition: 0.2s;
 }
 
 .mail-card{
@@ -240,7 +240,7 @@ flex-direction: column;
     display: flex;
     justify-content: start;
     align-items: center;
-    border-right: 1.3px solid rgba(212, 210, 203, 0.836);
+    border-right: 1.3px solidrgba(241, 241, 241, 0.836);
     padding-left: 1rem
 }
 
@@ -305,13 +305,13 @@ flex-direction: column;
 .open{
     font-weight: normal;
     width:16rem;
-    border-right:  1.3px solid rgba(212, 210, 203, 0.836);
+    border-right:  1.3px solid rgba(241, 241, 241, 0.836);
 }
 
 .close{
     font-weight: bold;
     width:16rem;
-    border-right:  1.3px solid rgba(212, 210, 203, 0.836);
+    border-right:  1.3px solid rgba(241, 241, 241, 0.836);
 }
 
 /* MAIL DETAILS PAGE*/
@@ -408,7 +408,7 @@ flex-direction: column;
 
 .fa-pencil-alt:hover{
     color:gold;
-    transition:0.5s;
+    transition:0.2s;
 }
 
 /*MAIL-REPLY*/
