@@ -35,10 +35,10 @@ export class MailDetails extends React.Component {
         return (
             (this.state.mail !== null) ? (
                 <div>
-                    <section className="main-details">
+                    <section className="main-details flex">
                         <div>
                             <div className="sent-from" style={{ backgroundColor: "yellow" }}>{sentFromUser.charAt(0)}</div>
-                            <div className="sent-at">{sentAt}</div>
+                            <div className="sent-at flex">{sentAt}</div>
                             <img src="../../assets/img/trash.png" onClick={(event) => this.deleteMail(event, id)} />
                         </div>
                         <div className="close subject">{subject}</div>

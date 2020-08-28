@@ -14,7 +14,7 @@ export class MailFilter extends React.Component {
     }
 
     render() {
-        return <section className="mail-filter">
+        return <section className="flex space-between">
             <h2>search</h2>
             <input value={ this.state.filterBy } type="text" placeholder="Filter by Name"
                 onChange={ this.handleChange } />

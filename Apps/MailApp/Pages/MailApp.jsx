@@ -25,10 +25,9 @@ export class MailApp extends React.Component {
     setFilter = (filterSpecificMails) => {
         console.log(filterSpecificMails);
         this.props.history.push(`/mail/list/inbox?=${filterSpecificMails}`)
-        this.setState({filterSpecificMails})
+        this.setState({ filterSpecificMails })
         // mailService.getMailsForDisplay(this.state.filterBy, filterSpecificMails)
         // .then(mails=> this.setState({mails}))
-
     }
 
 
@@ -40,15 +39,15 @@ export class MailApp extends React.Component {
                 <div className="upper-mail-navbar">
                     <button>Choose/sortBy</button>
                     <button onClick={() => window.location.reload()}>Refresh-page</button>
+                    <MailFilter location={this.props.location} onFilter={this.setFilter} />
                     <div>time</div>
                 </div>
-                <div className="main-mail-page">
-                    <div className="left-nav-bar">
-                        <MailFilter location={this.props.location} onFilter={this.setFilter} />
+                <div className="main-mail-page flex">
+                    <div className="left-nav-bar flex">
                         <Link to={`/mail/add`} className="compose">+Compose</Link>
-                        <Link to={`/mail/list/inbox`} >Inbox</Link>
-                        <Link to={`/mail/list/starred`}>Starred</Link>
-                        <Link to={`/mail/list/draft`}>Drafts</Link>
+                        <Link to={`/mail/list/inbox`} >📩Inbox</Link>
+                        <Link to={`/mail/list/starred`}>⭐ Starred</Link>
+                        <Link to={`/mail/list/draft`}>📄 Drafts</Link>
                         <OpenMail />
                     </div>
                     <Switch>
