@@ -1,4 +1,4 @@
-import { BookCard } from "./BookCard.jsx";
+import { BookCard } from "../Cmps/BookCard.jsx";
 
 export function BookList(props) {
 
