@@ -36,26 +36,32 @@ export class MailDetails extends React.Component {
             (this.state.mail !== null) ? (
                 <div>
                     <section className="main-details flex">
-                        <div>
-                            <div className="sent-from" style={{ backgroundColor: "yellow" }}>{sentFromUser.charAt(0)}</div>
+                        <div className="small-icons flex">
                             <div className="sent-at flex">{sentAt}</div>
-                            <img src="../../assets/img/trash.png" onClick={(event) => this.deleteMail(event, id)} />
+                            <span className="trash" onClick={(event) => this.deleteMail(event, id)}>🗑</span>
                         </div>
-                        <div className="close subject">{subject}</div>
+                        <div className="sent-from-details flex">
+                            <div className="bold subject-details">{subject}</div>
+                            <div className="flex">
+                                <div className="sent-from-user"> {sentFromUser.charAt(0)}</div>
+                                <div class="user-full-name bold">{sentFromUser}</div>
+                            </div>
+                        </div>
                         <div>
                             <div className="body">{body}</div>
-                            <Link to={`/mail/${id}/reply`} className="edit">Reply</Link>
+                            <Link to={`/mail/${id}/reply`} className="edit"><i className="fas fa-pencil-alt"></i></Link>
                         </div>
-                            {replies.map((mail)=>{ 
-                                return( <div className="replies" key={mail.id}>
-                                <div>
-                                  <div className="sent-from" style={{ backgroundColor: "yellow" }}>{mail.sentFromUser.charAt(0)}</div>
-                                  <div className="sent-at">{mail.sentAt}</div>
-                              </div>
-                                  <div className="body">{mail.body}</div>
-                                  <Link to={`/mail/${id}/reply`} className="edit">Reply</Link>
-                                  </div>
-                                  )})}
+                        {replies.map((mail) => {
+                            return (<div className="replies" key={mail.id}>
+                                <div className="sent-from-details flex">
+                                    <div className="sent-details">{mail.sentFromUser}</div>
+                                    <div className="sent-at">{mail.sentAt}</div>
+                                </div>
+                                <div className="body">{mail.body}</div>
+                                <Link to={`/mail/${id}/reply`} className="edit"><i className="fas fa-pencil-alt"></i></Link>
+                            </div>
+                            )
+                        })}
                         <Switch>
                             <Route component={MailReply} path={`/mail/${id}/reply`} id={this.state.currPageId} />
                         </Switch>

@@ -4,42 +4,15 @@
     font-size: 1.3rem;
 }
 
-/* INSIDE NAV-BAR*/
-
-.upper-mail-navbar{
-    -webkit-align-items: center;
-    align-items: center;
-    border: none;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    height: 48px;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-    margin: 0 0 0 16px!important;
-    padding: 0 16px 0 16px;
-    -webkit-transition: box-shadow .15s cubic-bezier(0.4,0.0,0.2,1);
-    transition: box-shadow .15s cubic-bezier(0.4,0.0,0.2,1);
-}
-
-.refresh{
-    display: inline-block;
-    height: 20px;
-    margin: 0;
-    padding: 0;
-    -webkit-transition: opacity .15s cubic-bezier(0.4,0.0,0.2,1);
-    transition: opacity .15s cubic-bezier(0.4,0.0,0.2,1);
-    width: 20px;
-}
-
-.mail-filter{
-flex-direction: column;
-}
 
 /* HELPERS */
 
 .flex{
     display:flex;
+}
+
+.d-collumn{
+    flex-direction: column;
 }
 
 .space-between{
@@ -50,15 +23,53 @@ flex-direction: column;
     align-items: center;
 }
 
-.open{
-    font-weight: normal;
-}
-
-.close{
+.bold{
     font-weight: bold;
 }
 
+.no-bgc{
+    background-color:none;
+}
 
+
+/* INSIDE NAV-BAR*/
+
+.upper-mail-navbar{
+    -webkit-align-items: center;
+    align-items: center;
+    border: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    max-width:90rem;
+    height: 48px;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    margin-left:20rem;
+    padding: 0 16px 0 16px;
+    -webkit-transition: box-shadow .15s cubic-bezier(0.4,0.0,0.2,1);
+    transition: box-shadow .15s cubic-bezier(0.4,0.0,0.2,1);
+    background-color: rgba(87, 87, 87, 0.795);
+}
+
+.refresh{
+    display: inline-block;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: opacity .15s cubic-bezier(0.4,0.0,0.2,1);
+    transition: opacity .15s cubic-bezier(0.4,0.0,0.2,1);
+    background-color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 31px;
+    cursor: pointer;
+}
+
+.mail-filter{
+flex-direction: column;
+}
 
 /* APP MAIL PAGE*/
 
@@ -74,11 +85,13 @@ flex-direction: column;
 /* SIDE BAR*/
 
 .left-nav-bar{
+    background-color: rgb(187, 133, 133);
     width:18rem;
-    height: 44.5rem;
+    height: 62rem;
     flex-direction: column;
     justify-items: left;
     margin: 1rem 0 1rem 1rem;
+    padding: 0 0.5rem 0 0.5rem;
 }
 
 .left-nav-bar >*{
@@ -122,7 +135,6 @@ flex-direction: column;
 
 .left-nav-bar :not(:first-child):hover{
     height: 3.3rem;
-    /* box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149); */
     -webkit-font-smoothing: antialiased;
     letter-spacing: .25px;
     align-items: center;
@@ -142,41 +154,46 @@ flex-direction: column;
 /*MAIL LIST PAGE*/
 
 .main-mail-container{
+    background-color: rgba(173, 137, 180, 0.422);
     height: 90vh;
     width: 90rem;
     margin: 1rem 0 1rem 1rem;
 }
 
 .single-mail-component{
-    padding-right: 1.5rem;
+    padding-right: 1rem;
     cursor: pointer;
-    padding-bottom: 10px;
     padding-top: 10px;
-    justify-content: space-between;
-    display: flex;
     position: relative;
 }
 
+
 .sentFromUser{
-    width:30px;
-    height: 30px;
+    padding:0;
+    width:35px;
+    height: 32px;
     margin: 10px 10px;
     border-radius: 50px;
     text-align: center;
+    font-size: 1.7rem;
 }
 
-.sentAt-inbox{
-    flex-grow: 1;
+.sent-at{
     display: flex;
     justify-content: start;
     align-items: center;
+    width:fit-content;
+    padding-left:0.5rem;
+    margin-right:3px;
 }
 
 .body-inbox{
-    flex-grow: 4;
+    width:57rem;
     display: flex;
     justify-content: start;
     align-items: center;
+    border-right: 1px solid lightslategrey;
+    padding-left: 1rem
 }
 
 
@@ -191,6 +208,7 @@ flex-direction: column;
 }
 
 .star-on:hover{
+    padding:0;
     opacity: 1;
     background-color: rgb(240, 239, 239);
     border-radius: 50px;
@@ -203,12 +221,13 @@ flex-direction: column;
     font-size: 32px;
     width: 40px;
     height: 40px;
-    color:#ccc;
+    color:rgb(228, 227, 227);
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .star-off:hover{
+ padding:0;
  opacity: 1;
  color:black;
  background-color: rgb(240, 239, 239);
@@ -220,37 +239,83 @@ flex-direction: column;
     font-size: 32px;
     width: 40px;
     height: 40px;
-    color:#ccc;
+    color:rgb(71, 71, 71);
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .trash:hover{
+    padding:0;
     opacity: 1;
     color:black;
     background-color: rgb(240, 239, 239);
     border-radius: 50px;
-    
+    text-align: center;
 }
 
+.open{
+    font-weight: normal;
+    width:16rem;
+    border-right: 1px solid lightslategrey;
+}
 
+.close{
+    font-weight: bold;
+    width:16rem;
+    border-right: 1px solid lightslategrey;
+}
 
 /* MAIL DETAILS PAGE*/
 
 .main-details{
-    background-color: #fff;
-    height: 38rem;
-    width: 80vw;
     flex-direction: column;
+    background-color: rgba(173, 137, 180, 0.422);
+    height: 90vh;
+    width: 90rem;
+    margin: 1rem 0 1rem 1rem;
 }
 
 .main-details >*{
     display: flex;
-    border-bottom: 1px solid #3c4043;
+    border-bottom: 1px solid lightslategrey;;
 }
+
+.small-icons{
+    justify-content: flex-end;
+    border:none;
+}
+
 .sent-at{
     align-items: center;
-    flex-grow: 1;
+}
+
+.sent-from-details{
+    flex-direction: column;
+    padding-left: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.sent-from-details >*{
+    /* flex-direction: column; */
+    padding-right: 10px;
+    height: 3rem;
+    font-size: 1.5rem;
+    width:fit-content;
+    margin-bottom: 1rem;
+}
+.sent-from-user{
+    padding:0;
+    width:35px;
+    height: 32px;
+    margin: 10px 10px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1.7rem;
+    background-color: gold;
+}
+
+.subject-details{
+    font-size: 2rem;
 }
 
 .sent-from{
@@ -261,14 +326,20 @@ flex-direction: column;
     text-align: center;
 }
 
+.user-full-name{
+    width:fit-content;
+    padding-left:10px;
+    padding-right: 10px;
+    align-self: center;
+}
+
 .subject{
+    border-right: 1px solid lightslategrey;
     padding: 20px 72px 8px 0;
     align-items: center;
-    flex-grow: 1;
 }
 
 .body{
-    flex-grow:4;
     padding-left :2.5rem;
 }
 

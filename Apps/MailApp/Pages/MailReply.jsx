@@ -58,8 +58,8 @@ export class MailReply extends React.Component {
                                                 <form onSubmit={this.addReplyMail}>
                                                         <textarea name="body" value={this.state.mailToAdd.body}
                                                                 type="text" onChange={this.onInputChange}></textarea>
-                                                        <button onClick={this.addReplyMail}>Send</button>
-                                                        <button onClick={this.moveToDraft}>X</button>
+                                                        <span onClick={this.addReplyMail}><i class="far fa-paper-plane"/></span>
+                                                        <span onClick={this.moveToDraft}><i class="fas fa-times"/></span>
                                                 </form>
                                         </section>
                                 </div>) : ''

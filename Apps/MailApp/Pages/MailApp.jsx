@@ -11,24 +11,36 @@ export class MailApp extends React.Component {
     state = {
         isInboxActive: true,
         currPageId: '',
-        filterBy: ''
+        filterBy: '',
+        time: ''
     }
 
     componentDidMount() {
         this.getId;
+        this.getTime()
     }
 
     getId = (id) => {
         this.setState({ currPageId: id })
     }
 
-    setFilter = (filterSpecificMails) => {
-        console.log(filterSpecificMails);
-        this.props.history.push(`/mail/list/inbox?=${filterSpecificMails}`)
-        this.setState({ filterSpecificMails })
-        // mailService.getMailsForDisplay(this.state.filterBy, filterSpecificMails)
-        // .then(mails=> this.setState({mails}))
+    getTime = () =>{
+        var time = new Date();
+        var hours = time.getHours();
+        var min = time.getMinutes();
+        if (hours.length === 1) hours = '0'+hours;
+        if (min.length === 1) min = '0'+min;
+        time = `⏰ ${hours}:${min}`;
+        this.setState({time});
     }
+
+    // setFilter = (filterSpecificMails) => {
+    //     console.log(filterSpecificMails);
+    //     this.props.history.push(`/mail/list/inbox?=${filterSpecificMails}`)
+    //     this.setState({ filterSpecificMails })
+    //     // mailService.getMailsForDisplay(this.state.filterBy, filterSpecificMails)
+    //     // .then(mails=> this.setState({mails}))
+    // }
 
 
     render() {
@@ -37,10 +49,9 @@ export class MailApp extends React.Component {
         return (
             <div>
                 <div className="upper-mail-navbar">
-                    <button>Choose/sortBy</button>
-                    <button onClick={() => window.location.reload()}>Refresh-page</button>
-                    <MailFilter location={this.props.location} onFilter={this.setFilter} />
-                    <div>time</div>
+                    <span>Choose/sortBy</span>
+                    <span className = "refresh" onClick={() => window.location.reload()}><i className="fas fa-redo-alt"></i></span>
+                    <div>{this.state.time}</div>
                 </div>
                 <div className="main-mail-page flex">
                     <div className="left-nav-bar flex">

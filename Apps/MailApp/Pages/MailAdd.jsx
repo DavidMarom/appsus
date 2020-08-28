@@ -52,8 +52,8 @@ export class MailAdd extends React.Component {
                     />
                     <textarea name="body" value={this.state.mailToAdd.body}
                         type="text" onChange={this.onInputChange}></textarea>
-                    <button onClick={this.addMail}>Send</button>
-                    <button onClick={this.moveToDraft}>X</button>
+                    <span onClick={this.addMail}><i class="far fa-paper-plane"></i></span>
+                    <span onClick={this.moveToDraft}><i class="fas fa-times"></i></span>
                 </form>
             </section>
         )
