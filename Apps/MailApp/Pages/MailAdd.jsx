@@ -42,12 +42,14 @@ export class MailAdd extends React.Component {
         return (
             <form className="add-mail-container flex d-collumn space-between" onSubmit={this.addMail}>
                 <div className=" email-add flex ">
-                <input className="w3-input " name="email" value={this.state.mailToAdd.email}
-                    placeholder="EmailAdrress" type="text"
-                    onChange={this.onInputChange}
-                />
-                    <span onClick={this.addMail}><i className="far fa-paper-plane"></i></span>
-                    <span onClick={this.moveToDraft}><i className="fas fa-times"></i></span>
+                    <input className="w3-input " name="email" value={this.state.mailToAdd.email}
+                        placeholder="EmailAdrress" type="text"
+                        onChange={this.onInputChange}
+                    />
+                    <div className="add-icons">
+                        <span onClick={this.addMail}><i className="far fa-paper-plane"></i></span>
+                        <span onClick={this.moveToDraft}><i className="fas fa-times"></i></span>
+                    </div>
                 </div>
                 <input className="w3-input" name="subject" value={this.state.mailToAdd.subjct}
                     placeholder="Subject" type="text"

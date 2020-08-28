@@ -1,11 +1,17 @@
 *{
     box-sizing: border-box;
     /* margin: 0; */
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    scroll-behavior: smooth;
 }
 
 
 /* HELPERS */
+
+hr{
+    border:  1px solid rgba(212, 210, 203, 0.836);
+    margin:4px;
+}
 
 .flex{
     display:flex;
@@ -17,6 +23,10 @@
 
 .d-collumn{
     flex-direction: column;
+}
+
+.dr{
+    flex-direction: row;
 }
 
 .space-between{
@@ -49,18 +59,23 @@
     -webkit-align-items: center;
     align-items: center;
     border: none;
-    display: -webkit-box;
-    display: -webkit-flex;
+    /* display: -webkit-box;
+    display: -webkit-flex; */
     display: flex;
-    max-width:90rem;
+    /* max-width:90rem; */
+    margin: 1rem 0 1rem 1rem;
     height: 48px;
     -webkit-justify-content: space-between;
     justify-content: space-between;
-    margin-left:20rem;
     padding: 0 16px 0 16px;
     -webkit-transition: box-shadow .15s cubic-bezier(0.4,0.0,0.2,1);
     transition: box-shadow .15s cubic-bezier(0.4,0.0,0.2,1);
-    background-color: rgba(87, 87, 87, 0.795);
+}
+
+.upper-mail-navbar:hover{
+    background-color: rgb(187, 133, 133, 0.5);
+    border-radius: 12px;
+    transition:0.7s;
 }
 
 .refresh{
@@ -84,30 +99,42 @@ flex-direction: column;
 
 /* APP MAIL PAGE*/
 
+.big-container{
+    max-width:90%;
+}
+
 .main-mail-page{
     display: -webkit-box;
     display: -webkit-flex;
-    width: 100%!important;
     -webkit-flex-direction: row;
     flex-direction: row;
+}
+
+.main-body{
+    max-width: 70vw;
 }
 
 
 /* SIDE BAR*/
 
-.left-nav-bar{
-    background-color: rgb(187, 133, 133);
+.left-nav-bar{ 
     width:18rem;
-    max-height: 85vh;
+    max-height: 92vh;
     flex-direction: column;
     justify-items: left;
     margin: 1rem 0 1rem 1rem;
     padding: 0 0.5rem 0 0.5rem;
 }
 
+.left-nav-bar:hover{
+    background-color: rgb(187, 133, 133, 0.5);
+    border-radius:12px;
+    transition: 0.7s;
+}
+
 .left-nav-bar >*{
     cursor: pointer;
-    border-bottom: 1px solid #3c4043;
+    border-bottom:  1.3px solid rgba(212, 210, 203, 0.836)
 }
 
 .compose{
@@ -144,10 +171,9 @@ flex-direction: column;
 
 .left-nav-bar :not(:first-child):hover{
     height: 3.3rem;
-    -webkit-font-smoothing: antialiased;
     letter-spacing: .25px;
     align-items: center;
-    background-color: #fff;
+    background-color: rgba(219, 219, 219, 0.856);
     -webkit-border-radius: 24px;
     border-radius: 24px;
     color: #3c4043;
@@ -155,18 +181,25 @@ flex-direction: column;
     font-weight: 500;
     min-width: 56px;
     overflow: hidden;
-    padding: 0 0 0 24px;
+    padding: 0 0 0 12px;
     text-transform: none;
-   opacity: 0.8;
 }
 
 /*MAIL LIST PAGE*/
 
 .main-mail-container{
-    background-color: rgba(173, 137, 180, 0.422);
-    max-height: 85vh;
-    width: 90rem;
     margin: 1rem 0 1rem 1rem;
+    border-left: 1.3px solid rgba(212, 210, 203, 0.836);
+}
+
+.main-mail-container:hover{
+    background-color: rgb(187, 133, 133, 0.5);
+    border-radius:12px;
+    transition: 0.7s;
+}
+
+.mail-card{
+    
 }
 
 .single-mail-component{
@@ -208,7 +241,7 @@ flex-direction: column;
     display: flex;
     justify-content: start;
     align-items: center;
-    border-right: 1px solid lightslategrey;
+    border-right: 1.3px solid rgba(212, 210, 203, 0.836);
     padding-left: 1rem
 }
 
@@ -273,22 +306,23 @@ flex-direction: column;
 .open{
     font-weight: normal;
     width:16rem;
-    border-right: 1px solid lightslategrey;
+    border-right:  1.3px solid rgba(212, 210, 203, 0.836);
 }
 
 .close{
     font-weight: bold;
     width:16rem;
-    border-right: 1px solid lightslategrey;
+    border-right:  1.3px solid rgba(212, 210, 203, 0.836);
 }
 
 /* MAIL DETAILS PAGE*/
 
 .main-details{
     flex-direction: column;
-    background-color: rgba(173, 137, 180, 0.422);
-    height: 85vh;
-    width: 90rem;
+    background-color: rgba(204, 204, 204, 0.664);
+    width:70vw;
+    min-height: 70vh;
+    border-radius: 12px;
     margin: 1rem 0 1rem 1rem;
 }
 
@@ -309,7 +343,7 @@ flex-direction: column;
     flex-direction: column;
     padding-left: 2.5rem;
     margin-bottom: 2.5rem;
-    border-bottom: 1px solid lightslategrey;;
+    border-bottom:  1.3px solid rgba(212, 210, 203, 0.836);
 }
 
 .sent-from-details >*{
@@ -353,7 +387,7 @@ flex-direction: column;
 }
 
 .subject{
-    border-right: 1px solid lightslategrey;
+    border-right:  1.3px solid rgba(212, 210, 203, 0.836);
     padding: 20px 72px 8px 0;
     align-items: center;
 }
@@ -373,6 +407,11 @@ flex-direction: column;
     padding-right: 1rem;
 }
 
+.fa-pencil-alt:hover{
+    color:gold;
+    transition:0.5s;
+}
+
 /*MAIL-REPLY*/
 
 .main-Replay{
@@ -380,7 +419,7 @@ flex-direction: column;
     background-color: rgba(173, 137, 180, 0.422);
     width: 90rem;
     max-height: 32rem;
-    border-top: 1px solid lightslategrey;
+    border-top:  1.3px solid rgba(212, 210, 203, 0.836);
 }
 
 .text-area{
@@ -398,6 +437,11 @@ flex-direction: column;
     padding-right: 1rem;
 }
 
+.fa-times:hover{
+color:gold;
+transition:0.5s;
+}
+
 .fa-paper-plane:before {
     cursor: pointer;
     content: "\f1d8";
@@ -405,13 +449,18 @@ flex-direction: column;
     padding-right: 1rem;
 }
 
+.fa-paper-plane:hover{
+    color:gold;
+transition:0.5s;
+}
+
 /* ADD-MAIL */
 
 .add-mail-container{
-    background-color: rgba(173, 137, 180, 0.422);
-    width: 90rem;
+    background-color:rgb(187, 133, 133, 0.5);
     max-height: 85vh;
-    border-top: 1px solid lightslategrey;
+    width:70vw;
+    border-top:  1.3px solid rgba(212, 210, 203, 0.836);
     margin: 1rem 0 1rem 1rem;
     flex-wrap: wrap;
     padding-bottom: 5rem;
@@ -420,21 +469,44 @@ flex-direction: column;
 .add-mail-container input{
     background-color: rgba(212, 210, 203, 0.836);
     font-family: Arial, Helvetica, sans-serif;
-    width:70vw;
+    width:80%;
     font-size: 1.5rem;
     min-height: 2.5rem;
     margin-left: 2rem;
+    border:none;
 }
 
 .add-mail-container textarea{
     background-color: rgba(212, 210, 203, 0.836);
     font-family: Arial, Helvetica, sans-serif;
-    width:70vw;
+    width:80%;
     font-size: 1.5rem;
     min-height: 2.5rem;
     margin-left: 2rem;
+    outline: none;
+}
+
+.add-mail-container textarea:focus{
+    outline:none;
+    border:none;
+}
+.add-icons{
+    display:flex;
+    margin-left: 30px;
 }
 
 .email-add{
     margin-top:5px;
+}
+
+@media (max-width: 1100px){
+    .body-inbox{
+        width:fit-content;
+    }
+}
+
+@media(max-width: 650px){
+    *{
+        width: fit-content;
+    }
 }

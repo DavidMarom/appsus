@@ -8,16 +8,12 @@ function _NavBar(props) {
 
     return <section className="navbar">
 
-        <nav>
+        <nav className="icons">
+            <span onClick={goBack}><i className="fas fa-arrow-left"></i></span>
             <NavLink exact activeClassName='active-nav' className="nav-btn" to="/"><i className="fas fa-home"></i></NavLink>
-
-            <NavLink exact activeClassName='active-nav' className="nav-btn" to="/book">Books</NavLink>
-
-            <NavLink exact activeClassName='active-nav' className="nav-btn" to="/mail/list/inbox">Mail</NavLink>
-            <NavLink exact activeClassName='active-nav' className="nav-btn" to="/note">Notes</NavLink>
-
-
-            <button onClick={goBack}>Back</button>
+            <NavLink exact activeClassName='active-nav' className="nav-btn" to="/book"><i className="fas fa-book-open"></i></NavLink>
+            <NavLink exact activeClassName='active-nav' className="nav-btn" to="/mail/list/inbox"><i className="fas fa-envelope"></i></NavLink>
+            <NavLink exact activeClassName='active-nav' className="nav-btn" to="/note"><i className="fas fa-thumbtack"></i></NavLink>
         </nav>
 
     </section>
