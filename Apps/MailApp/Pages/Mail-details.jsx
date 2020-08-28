@@ -24,6 +24,16 @@ export class MailDetails extends React.Component {
                 this.setState({ mail })
             })
     }
+
+    // deleteMail = (ev, id) => {
+    //     ev.preventDefault();
+    //     ev.stopPropagation();
+    //     mailService.deleteMail(id)
+    //         .then(mails => {
+    //             this.setState({ mails });
+    //         })
+    // }
+
         
         render() {
         return (
@@ -33,7 +43,9 @@ export class MailDetails extends React.Component {
                         <div className="sent-at">{this.state.mail.sentAt}</div>
                         <div className="sent-from" style={{backgroundColor : "yellow"}}>{this.state.mail.sentFromUser.charAt(0)}</div>
                         <div className="close subject">{this.state.mail.subject}</div>
-                        <div className="body">{this.state.mail.body}</div>
+                        <div className="body">{this.state.mail.body}
+                        {/* <img src="../../assets/img/trash.png" onClick={(event) => deleteMail(event,this.state.mail.id)} /> */}
+                        </div>
                     </section>
                 </div>) : ''
         )
