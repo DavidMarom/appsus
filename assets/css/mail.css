@@ -22,6 +22,16 @@
     transition: box-shadow .15s cubic-bezier(0.4,0.0,0.2,1);
 }
 
+.refresh{
+    display: inline-block;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: opacity .15s cubic-bezier(0.4,0.0,0.2,1);
+    transition: opacity .15s cubic-bezier(0.4,0.0,0.2,1);
+    width: 20px;
+}
+
 .mail-filter{
 flex-direction: column;
 }
@@ -36,6 +46,10 @@ flex-direction: column;
     justify-content: space-between;
 }
 
+.align-center{
+    align-items: center;
+}
+
 .open{
     font-weight: normal;
 }
@@ -44,34 +58,6 @@ flex-direction: column;
     font-weight: bold;
 }
 
-.star-on{
-    text-align: center;
-    width: 40px;
-    height: 40px;
-    font-size:32px;
-    color:gold;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
-.star-off
-{
-    text-align: center;
-    font-size: 32px;
-    width: 40px;
-    height: 40px;
-    color:#ccc;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.star-off:hover{
- opacity: 1;
- color:black;
- background-color: rgb(240, 239, 239);
- border-radius: 50px;
-}
 
 
 /* APP MAIL PAGE*/
@@ -179,17 +165,74 @@ flex-direction: column;
     text-align: center;
 }
 
-.sent-at-inbox{
+.sentAt-inbox{
     flex-grow: 1;
     display: flex;
     justify-content: start;
+    align-items: center;
 }
 
 .body-inbox{
     flex-grow: 4;
     display: flex;
     justify-content: start;
+    align-items: center;
 }
+
+
+.star-on{
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    font-size:32px;
+    color:gold;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.star-on:hover{
+    opacity: 1;
+    background-color: rgb(240, 239, 239);
+    border-radius: 50px;
+}
+
+
+.star-off
+{
+    text-align: center;
+    font-size: 32px;
+    width: 40px;
+    height: 40px;
+    color:#ccc;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.star-off:hover{
+ opacity: 1;
+ color:black;
+ background-color: rgb(240, 239, 239);
+ border-radius: 50px;
+}
+
+.trash{
+    text-align: center;
+    font-size: 32px;
+    width: 40px;
+    height: 40px;
+    color:#ccc;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.trash:hover{
+    opacity: 1;
+    color:black;
+    background-color: rgb(240, 239, 239);
+    border-radius: 50px;
+    
+}
+
 
 
 /* MAIL DETAILS PAGE*/

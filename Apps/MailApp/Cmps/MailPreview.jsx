@@ -16,10 +16,10 @@ export function MailPreview({ mail, changStateOfisRead, changeToImportantMail, d
                         {/* <img src="../../assets/img/star.png" /> */} {`\u2606`}
                     </div>
                     <div className="sentFromUser" style={divStyle}>{sentFromUser.charAt(0)}</div>
-                    <div className={(isRead) ? "open" : "close"}>{subject}</div>
+                    <div className={(isRead) ? "open flex align-center" : "close flex align-center"}>{subject}</div>
                     <div className="body-inbox"><LongText text={body} /></div>
                     <div className="sentAt-inbox">{sentAt}</div>
-                    <img src="../../assets/img/trash.png" onClick={(event) => deleteMail(event,id)} />
+                    <div className="trash" onClick={(event) => deleteMail(event,id)}>🗑</div>
                 </section>
             </Link>
             <hr />
