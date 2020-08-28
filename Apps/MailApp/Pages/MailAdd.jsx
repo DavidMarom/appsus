@@ -14,17 +14,17 @@ export class MailAdd extends React.Component {
         ev.preventDefault();
         console.log('Adding Mail');
         mailService.addMail(this.state.mailToAdd)
-        this.setState({mailToAdd: mailService.getEmptyMail()})
+        this.setState({ mailToAdd: mailService.getEmptyMail() })
         this.props.history.goBack();
     }
 
-    moveToDraft=(ev) =>{
+    moveToDraft = (ev) => {
         console.log(ev);
         ev.preventDefault();
         console.log(this.state.mailToAdd);
         this.state.mailToAdd.name = 'draft';
         mailService.addMail(this.state.mailToAdd)
-        this.setState({mailToAdd: mailService.getEmptyMail()})
+        this.setState({ mailToAdd: mailService.getEmptyMail() })
         this.props.history.goBack();
     }
 
@@ -40,22 +40,22 @@ export class MailAdd extends React.Component {
 
     render() {
         return (
-            <section className="add-mail-container">
-                <form onSubmit={this.addMail}>
-                    <input name="email" value={this.state.mailToAdd.email}
-                        placeholder="EmailAdrress" type="text"
-                        onChange={this.onInputChange}
-                    />
-                    <input name="subject" value={this.state.mailToAdd.subjct}
-                        placeholder="Subject" type="text"
-                        onChange={this.onInputChange}
-                    />
-                    <textarea name="body" value={this.state.mailToAdd.body}
-                        type="text" onChange={this.onInputChange}></textarea>
-                    <span onClick={this.addMail}><i class="far fa-paper-plane"></i></span>
-                    <span onClick={this.moveToDraft}><i class="fas fa-times"></i></span>
-                </form>
-            </section>
+            <form className="add-mail-container flex d-collumn space-between" onSubmit={this.addMail}>
+                <div className=" email-add flex ">
+                <input className="w3-input " name="email" value={this.state.mailToAdd.email}
+                    placeholder="EmailAdrress" type="text"
+                    onChange={this.onInputChange}
+                />
+                    <span onClick={this.addMail}><i className="far fa-paper-plane"></i></span>
+                    <span onClick={this.moveToDraft}><i className="fas fa-times"></i></span>
+                </div>
+                <input className="w3-input" name="subject" value={this.state.mailToAdd.subjct}
+                    placeholder="Subject" type="text"
+                    onChange={this.onInputChange}
+                />
+                <textarea className="w3-input" name="body" value={this.state.mailToAdd.body}
+                    type="text" placeholder="wright your comment here..." onChange={this.onInputChange}></textarea>
+            </form >
         )
     }
 }
