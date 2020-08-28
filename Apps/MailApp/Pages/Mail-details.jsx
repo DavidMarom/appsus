@@ -36,28 +36,33 @@ export class MailDetails extends React.Component {
             (this.state.mail !== null) ? (
                 <div>
                     <section className="main-details flex">
-                        <div className="small-icons flex">
+                        <div className="small-icons flex padding-left">
                             <div className="sent-at flex">{sentAt}</div>
-                            <span className="trash" onClick={(event) => this.deleteMail(event, id)}>🗑</span>
+                            <span className="trash black" onClick={(event) => this.deleteMail(event, id)}>🗑</span>
                         </div>
                         <div className="sent-from-details flex">
                             <div className="bold subject-details">{subject}</div>
                             <div className="flex">
                                 <div className="sent-from-user"> {sentFromUser.charAt(0)}</div>
-                                <div class="user-full-name bold">{sentFromUser}</div>
+                                <div className="user-full-name bold">{sentFromUser}</div>
                             </div>
                         </div>
-                        <div>
-                            <div className="body">{body}</div>
+                        <div className="flex space-between">
+                            <div className="body-details">{body}</div>
                             <Link to={`/mail/${id}/reply`} className="edit"><i className="fas fa-pencil-alt"></i></Link>
                         </div>
                         {replies.map((mail) => {
                             return (<div className="replies" key={mail.id}>
                                 <div className="sent-from-details flex">
-                                    <div className="sent-details">{mail.sentFromUser}</div>
-                                    <div className="sent-at">{mail.sentAt}</div>
+                                    <div className="sent-at flex">{sentAt}</div>
+                                    <div className="flex">
+                                        <div className="sent-from-user"> {sentFromUser.charAt(0)}</div>
+                                        <div className="user-full-name bold">{sentFromUser}</div>
+                                    </div>
                                 </div>
-                                <div className="body">{mail.body}</div>
+                                <div className="flex space-between">
+                                    <div className="body-details">{body}</div>
+                                </div>
                                 <Link to={`/mail/${id}/reply`} className="edit"><i className="fas fa-pencil-alt"></i></Link>
                             </div>
                             )

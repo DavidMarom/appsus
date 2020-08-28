@@ -19,8 +19,8 @@ export class MailReply extends React.Component {
         addReplyMail = (ev) => {
                 ev.preventDefault();
                 console.log('Adding Mail');
-                mailService.addReply(this.state.mail,this.state.mailToAdd)
-                this.setState({ mailToAdd: mailService.getEmptyMail() , mail:mailService.getEmptyMail()})
+                mailService.addReply(this.state.mail, this.state.mailToAdd)
+                this.setState({ mailToAdd: mailService.getEmptyMail(), mail: mailService.getEmptyMail() })
                 this.props.history.goBack();
         }
 
@@ -49,17 +49,19 @@ export class MailReply extends React.Component {
                 return (
                         (this.state.mail !== null) ? (
                                 <div>
-                                        <section className="main-details">
-                                                <div>
-                                                        <div className="sent-from" style={{ backgroundColor: "yellow" }}>{sentFromUser.charAt(0)}</div>
-                                                        <div className="sent-at">{sentAt}</div>
+                                        <section className="main-Replay">
+                                                <div className="flex padding-left">
+                                                        <div className="sent-from-user"> {sentFromUser.charAt(0)}</div>
+                                                        <div className="user-full-name bold">{sentFromUser}</div>
                                                 </div>
-                                                <div className="close subject">{subject}</div>
                                                 <form onSubmit={this.addReplyMail}>
-                                                        <textarea name="body" value={this.state.mailToAdd.body}
+                                                        <div className = "flex flex-end">
+                                                        <span onClick={this.addReplyMail}><i className="far fa-paper-plane" /></span>
+                                                        <span onClick={this.moveToDraft}><i className="fas fa-times" /></span>
+                                                        </div>
+                                                        <textarea className="text-area" name="body"
+                                                        placeholder="wright your comment here..." value={this.state.mailToAdd.body}
                                                                 type="text" onChange={this.onInputChange}></textarea>
-                                                        <span onClick={this.addReplyMail}><i class="far fa-paper-plane"/></span>
-                                                        <span onClick={this.moveToDraft}><i class="fas fa-times"/></span>
                                                 </form>
                                         </section>
                                 </div>) : ''
