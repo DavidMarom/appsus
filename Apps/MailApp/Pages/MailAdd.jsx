@@ -18,10 +18,18 @@ export class MailAdd extends React.Component {
         this.props.history.goBack();
     }
 
+    moveToDraft=(ev) =>{
+        console.log(ev);
+        ev.preventDefault();
+        console.log(this.state.mailToAdd);
+        this.state.mailToAdd.name = 'draft';
+        mailService.addMail(this.state.mailToAdd)
+        this.setState({mailToAdd: mailService.getEmptyMail()})
+        this.props.history.goBack();
+    }
+
 
     onInputChange = (ev) => {
-        console.log('Input:', ev.target.name);
-        console.log('Changed', ev.target.value);
         this.setState(
             {
                 mailToAdd: { ...this.state.mailToAdd, [ev.target.name]: ev.target.value }
@@ -34,7 +42,7 @@ export class MailAdd extends React.Component {
         return (
             <section className="add-mail-container">
                 <form onSubmit={this.addMail}>
-                    <input name="email" value={this.state.mailToAdd.name}
+                    <input name="email" value={this.state.mailToAdd.email}
                         placeholder="EmailAdrress" type="text"
                         onChange={this.onInputChange}
                     />
@@ -45,6 +53,7 @@ export class MailAdd extends React.Component {
                     <textarea name="body" value={this.state.mailToAdd.body}
                         type="text" onChange={this.onInputChange}></textarea>
                     <button onClick={this.addMail}>Send</button>
+                    <button onClick={this.moveToDraft}>X</button>
                 </form>
             </section>
         )

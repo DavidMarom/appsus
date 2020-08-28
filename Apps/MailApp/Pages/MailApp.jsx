@@ -4,17 +4,16 @@ import { MailList } from './MailList.jsx'
 import { MailDetails } from './Mail-details.jsx'
 import { OpenMail } from '../Cmps/OpenMail.jsx';
 import { MailAdd } from './MailAdd.jsx'
-import  {MailDraft } from './MailDraft.jsx'
+import { MailDraft } from './MailDraft.jsx'
 import { MailStarred } from './MailStarred.jsx'
 import { MailFilter } from '../Cmps/MailFilter.jsx'
-import { mailService } from '../../../services/mail-service.js';
 
 export class MailApp extends React.Component {
 
     state = {
         isInboxActive: true,
         currPageId: '',
-        filterBy:''
+        filterBy: ''
     }
 
     componentDidMount() {
@@ -25,16 +24,13 @@ export class MailApp extends React.Component {
         this.setState({ currPageId: id })
     }
 
-    // setFilter = (filterBy) => {
-    //     this.props.history.push(`/mail/list?=${filterBy}`)
-    //     this.setState({ filterBy })
-    // }
+    setFilter = (filterSpecificMails) => {
+        console.log(filterSpecificMails);
+        this.props.history.push(`/mail/list/inbox?=${filterSpecificMails}`)
+        this.setState({filterSpecificMails})
+        // mailService.getMailsForDisplay(this.state.filterBy, filterSpecificMails)
+        // .then(mails=> this.setState({mails}))
 
-    getmailsForDisplay =(filterBy) =>{
-        mailService.getmailsForDisplay(filterBy)
-        .then(mails=> {
-            setState({mails})
-        })
     }
 
 
@@ -48,9 +44,9 @@ export class MailApp extends React.Component {
                     <button onClick={() => window.location.reload()}>Refresh-page</button>
                     <div>time</div>
                 </div>
-                {/* <MailFilter location={ this.props.location } onFilter={ this.setFilter } /> */}
                 <div className="main-mail-page">
                     <div className="left-nav-bar">
+                        <MailFilter location={this.props.location} onFilter={this.setFilter} />
                         <Link to={`/mail/add`} className="compose">+Compose</Link>
                         <Link to={`/mail/list/inbox`} >Inbox</Link>
                         <Link to={`/mail/list/starred`}>Starred</Link>
@@ -58,11 +54,11 @@ export class MailApp extends React.Component {
                         <OpenMail />
                     </div>
                     <Switch>
-                        <Route component = {MailList} from path="/mail/list/:filterBy" getmailsForDisplay={this.getmailsForDisplay}/>
-                        <Route component = {MailStarred} path="/mail/starred" getmailsForDisplay={this.getmailsForDisplay}/>
-                        <Route component = {MailDraft}  path= "/mail/draft" getmailsForDisplay={this.getmailsForDisplay}/>
-                        <Route component = {MailAdd} path="/mail/add"/>
-                        <Route component = {MailDetails} path="/mail/:mailId" id={this.state.currPageId}/>
+                        <Route component={MailList} from path="/mail/list/:filterBy" />
+                        <Route component={MailStarred} path="/mail/starred" />
+                        <Route component={MailDraft} path="/mail/draft" />
+                        <Route component={MailAdd} path="/mail/add" />
+                        <Route component={MailDetails} path="/mail/:mailId" id={this.state.currPageId} />
                     </Switch>
                 </div>
             </div>
