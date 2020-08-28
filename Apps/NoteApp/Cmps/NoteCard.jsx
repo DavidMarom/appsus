@@ -56,18 +56,26 @@ export class NoteCard extends React.Component {
         return (
             <div className={`note-card ${this.props.content.bg}`}>
                 <div className="upper-part">
-                    <h3>{!note && this.props.content.title}</h3>
-                    <p>{this.props.content.body}</p>
-                    <img src={`${this.props.content.url}`}></img>
+
+                    {this.props.content.type === 'text' ? <div>
+                        <h3>{!note && this.props.content.title}</h3>
+                        <p>{this.props.content.body}</p>    </div> : null}
+
+
+                    {this.props.content.type === 'list' ? <div>
+                        <h3>{!note && this.props.content.title}</h3>                    </div> : null}
+
+
+                    {/* <img src={`${this.props.content.url}`}></img> */}
 
                     {this.props.content.type === 'list' ?
-                        this.props.content.list.map((item, idx) =>
-                            <div key={idx} className="list-in-card">
-                                <div >{item}</div>
-                                <div className="btn" data-id={idx} onClick={this.removeListItem}>X</div>
-                            </div>
+                        this.props.content.list.map((item, idx) => <div key={idx} className="list-in-card">
+                            <div>{item}</div>
+                            <div className="btn" data-id={idx} onClick={this.removeListItem}>X</div>
+                        </div>) : null}
 
-                        ) : null}
+                    {this.props.content.type === 'image' ? <img src={`${this.props.content.url}`}></img> : null}
+
                     <div className="space"></div>
                 </div>
 

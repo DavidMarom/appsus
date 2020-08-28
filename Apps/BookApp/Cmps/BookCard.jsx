@@ -3,7 +3,7 @@ const { Link } = ReactRouterDOM
 // THE CARDS ARE LOADED FROM THE BOOKLIST PAGE
 
 export function BookCard({ click, book }) {
-    var symbol = '█';
+    var symbol = ' ';
     if (book.listPrice.currencyCode === 'EUR') { symbol = '€' }
     if (book.listPrice.currencyCode === 'USD') { symbol = '$' }
     if (book.listPrice.currencyCode === 'ILS') { symbol = '₪' }
