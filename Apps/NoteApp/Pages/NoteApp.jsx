@@ -1,6 +1,8 @@
-const { NavLink, withRouter } = ReactRouterDOM
+// *************************************
+// *            NOTES PAGE             *
+// *************************************
 
-// **************  NOTE PAGE  **********
+const { NavLink, withRouter } = ReactRouterDOM
 
 import { Storage } from "../../../services/storage-service.js";
 import { noteService } from "../../../services/note-service.js";
@@ -23,7 +25,7 @@ export class NoteApp extends React.Component {
             })
     }
 
-    loadNotes2 = () => {
+    loadNotesFromStorage = () => {
         this.setState({ notes: Storage.loadFromStorage('notes') })
     }
 
@@ -31,12 +33,12 @@ export class NoteApp extends React.Component {
 
         return (
             <div className="note-app-wrapper">
-                <AddItemBar allNotes={this.state.notes} ln={this.loadNotes2} history={this.props.history}  />
+                <AddItemBar allNotes={this.state.notes} ln={this.loadNotesFromStorage} history={this.props.history}  />
 
                 <div className="notes-container">
                     {this.state.notes.length && this.state.notes.map((note, iDx) => <NoteCard
                         key={iDx}
-                        ln={this.loadNotes2}
+                        loadNotesFromStorage={this.loadNotesFromStorage}
                         history={this.props.history}
                         currentNoteId={iDx}
                         content={note}
