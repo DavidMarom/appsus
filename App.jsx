@@ -4,6 +4,9 @@ const { Route, Switch } = ReactRouterDOM
 import { MailApp } from './Apps/MailApp/Pages/MailApp.jsx';
 import { NoteApp } from './Apps/NoteApp/Pages/NoteApp.jsx';
 
+import { BookApp } from './Apps/BookApp/Pages/BookApp.jsx';
+import { BookAdd } from './Apps/BookApp/Pages/BookAdd.jsx';
+
 
 import { Home } from './pages/Home.jsx';
 import { Notification } from './cmps/Notifications.jsx'
@@ -23,6 +26,10 @@ export class App extends React.Component {
                     <main>
                         <Switch>       
                             <Route component={MailApp} path="/mail" />
+                            
+                            <Route component={BookAdd} path="/book/add" />
+                            <Route component={BookApp} path="/book" />
+
                             <Route component={NoteApp} path="/note" />
                             <Route component={Home} path="/" />
                         </Switch>

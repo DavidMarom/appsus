@@ -9,10 +9,13 @@ function _NavBar(props) {
     return <section className="navbar">
 
         <nav>
+            <NavLink exact activeClassName='active-nav' className="nav-btn" to="/book">Books</NavLink>
+            {/* <NavLink exact activeClassName='active-nav' className="nav-btn" to="/book/add">Add a book</NavLink> */}
+
             <NavLink exact activeClassName='active-nav' className="nav-btn" to="/mail/list/inbox">Mail</NavLink>
             <NavLink exact activeClassName='active-nav' className="nav-btn" to="/note">Notes</NavLink>
             <NavLink exact activeClassName='active-nav' className="nav-btn" to="/">Home</NavLink>
-            
+
 
             <button onClick={goBack}>Back</button>
         </nav>
