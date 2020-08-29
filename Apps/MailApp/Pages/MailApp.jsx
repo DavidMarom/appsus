@@ -45,7 +45,6 @@ export class MailApp extends React.Component {
 
     render() {
         const isInboxActive = this.state.isInboxActive;
-        console.log(isInboxActive);
         return (
             <div className = "big-container">
                 <div className="main-mail-page flex">

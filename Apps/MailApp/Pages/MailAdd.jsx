@@ -19,9 +19,7 @@ export class MailAdd extends React.Component {
     }
 
     moveToDraft = (ev) => {
-        console.log(ev);
         ev.preventDefault();
-        console.log(this.state.mailToAdd);
         this.state.mailToAdd.name = 'draft';
         mailService.addMail(this.state.mailToAdd)
         this.setState({ mailToAdd: mailService.getEmptyMail() })

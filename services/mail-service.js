@@ -5,7 +5,7 @@ export const mailService = {
     // saveMail,
     getMails,
     getEmptyMail,
-    query,
+    // query,
     getMailById,
     addMail,
     togglePages,
@@ -19,7 +19,7 @@ export const mailService = {
     addReply
 }
 
-var mails = [
+const gLocalMails = [
     { id: MainService.makeId(), name: 'inbox', sentFromUser: 'Yoav', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: getTime(), isStarred: false, replies: [] },
     { id: MainService.makeId(), name: 'inbox', sentFromUser: 'Ziv', userBgc: '#' + makeRandomColor(), subject: 'Read', body: 'You should read this', isRead: false, sentAt: getTime(), isStarred: false, replies: [] },
     { id: MainService.makeId(), name: 'inbox', sentFromUser: 'Liel', userBgc: '#' + makeRandomColor(), subject: 'Wassap?', body: 'shalom :)', isRead: false, sentAt: getTime(), isStarred: false, replies: [] },
@@ -33,22 +33,16 @@ var mails = [
 
 function getMails() {
     const mailsFromStorage = Storage.loadFromStorage('mails');
-    if (!mailsFromStorage || mailsFromStorage.length === 0) {
-        query()
-            .then(mails => {
-                Storage.saveToStorage('mails', mails)
-                return mails;
-            })
-    } else return mailsFromStorage
+    return (!mailsFromStorage || mailsFromStorage.length === 0)? gLocalMails :mailsFromStorage;
 }
 
 function getEmptyMail() {
     return { id: MainService.makeId(), name: 'inbox', sentFromUser: '', userBgc: '#' + makeRandomColor(), subject: '', body: '', isRead: false, sentAt: getTime(), isStarred: false }
 }
 
-function query() {// returne relelvant mails
-    return Promise.resolve(mails)
-}
+// function query() {// returne relelvant mails
+//     return Promise.resolve(gLocalMails)
+// }
 
 function getTime() {
     var time = new Date();
@@ -71,7 +65,6 @@ function addMail(mail) {
     const mailToAdd = { ...mail }
     mails = [mailToAdd, ...mails]
     Storage.saveToStorage('mails', mails)
-    window.theMails = mails
 }
 
 function addReply(mail, mailToAdd) {
@@ -80,7 +73,6 @@ function addReply(mail, mailToAdd) {
     const currIdx = findMailIndex(mail);
     mails.splice(currIdx, 1, mail);
     Storage.saveToStorage('mails', mails);
-    window.theMails = mails
 }
 
 
@@ -126,9 +118,7 @@ function markMailAsStar(mail) {
 }
 
 function getMailsForDisplay(filterBy, filterSpecificMails) {
-    console.log('fB-', filterBy);
-    console.log('specificmails-', filterSpecificMails);
-    let mails = getMails();
+    var mails = getMails();
     mails = mails.filter(mail => mail.name.toLowerCase().includes(filterBy.toLowerCase()))
     if (filterSpecificMails) {
         mails = mails.filter(mail => {

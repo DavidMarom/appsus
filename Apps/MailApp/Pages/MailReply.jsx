@@ -4,12 +4,10 @@ export class MailReply extends React.Component {
         state = {
                 mail: null,
                 mailToAdd: mailService.getEmptyMail(),
-                subject: '',
-                body: '',
+                userName:'me'
         }
 
         componentDidMount() {
-                console.log(this.props.match.url);
                 mailService.getMailFromUrl(this.props.match.url)
                         .then(mail => {
                                 this.setState({ mail })
@@ -19,15 +17,14 @@ export class MailReply extends React.Component {
         addReplyMail = (ev) => {
                 ev.preventDefault();
                 console.log('Adding Mail');
+                this.state.mailToAdd.sentFromUser = this.state.userName;
                 mailService.addReply(this.state.mail, this.state.mailToAdd)
                 this.setState({ mailToAdd: mailService.getEmptyMail(), mail: mailService.getEmptyMail() })
-                this.props.history.goBack();
+                this.props.history.push('/mail/list/inbox');
         }
 
         moveToDraft = (ev) => {
-                console.log(ev);
                 ev.preventDefault();
-                console.log(this.state.mailToAdd);
                 this.state.mailToAdd.name = 'draft';
                 mailService.addMail(this.state.mailToAdd)
                 this.setState({ mailToAdd: mailService.getEmptyMail() })

@@ -12,9 +12,7 @@ export function MailPreview({ mail, changStateOfisRead, changeToImportantMail, d
         <div>
             <Link to={`/mail/${id}`} onClick={() => changStateOfisRead(mail)} >
                 <section className="single-mail-component flex">
-                    <div className={starClass} onClick={(event) => changeToImportantMail(event,mail)}>
-                        {/* <img src="../../assets/img/star.png" /> */} {`\u2606`}
-                    </div>
+                    <div className={starClass} onClick={(event) => changeToImportantMail(event,mail)}>{`\u2606`}</div>
                     <div className="sentFromUser" style={divStyle}>{sentFromUser.charAt(0)}</div>
                     <div className={(isRead) ? "open flex align-center" : "close flex align-center"}>{subject}</div>
                     <div className="body-inbox"><LongText text={body} /></div>

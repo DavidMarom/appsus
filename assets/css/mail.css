@@ -18,6 +18,7 @@ hr{
 
 .flex-end{
     justify-content: flex-end;
+    align-self: flex-end;
 }
 
 .d-collumn{
@@ -197,9 +198,6 @@ flex-direction: column;
     transition: 0.2s;
 } */
 
-.mail-card{
-    
-}
 
 .single-mail-component{
     padding-right: 1rem;
@@ -241,7 +239,7 @@ flex-direction: column;
     justify-content: start;
     align-items: center;
     border-right: 1.3px solidrgba(241, 241, 241, 0.836);
-    padding-left: 1rem
+    padding-left: 1rem;
 }
 
 
@@ -330,7 +328,7 @@ flex-direction: column;
 }
 
 .small-icons{
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     border:none;
 }
 
@@ -411,11 +409,26 @@ flex-direction: column;
     transition:0.2s;
 }
 
+/*replies area */
+
+.replies{
+    margin-top: 15px;
+    border-top: 1px solid  rgba(197, 191, 191, 0.836);
+}
+
+.sent-from-replies{
+    width: 100%;
+    flex-direction: column;
+    padding-left: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+
 /*MAIL-REPLY*/
 
 .main-Replay{
     flex-direction: column;
-    background-color: rgba(173, 137, 180, 0.422);
+    background-color: rgba(219, 219, 219, 0.856);
     width: 90rem;
     max-height: 32rem;
     border-top:  1.3px solid rgba(212, 210, 203, 0.836);
@@ -426,7 +439,7 @@ flex-direction: column;
     min-height: 18rem;
     font-family:Arial, Helvetica, sans-serif;
     font-size: 20px;
-    background-color: rgba(219, 219, 219, 0.856);
+    background-color:  rgb(187, 133, 133, 0.5);
 }
 
 .fa-times:before {
@@ -499,13 +512,18 @@ transition:0.5s;
 }
 
 @media (max-width: 1100px){
+    .main-body-inbox{
+       max-width:50vw;
+    }
+
     .body-inbox{
-        width:fit-content;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 }
 
 @media(max-width: 650px){
-    *{
-        width: fit-content;
-    }
+   
 }

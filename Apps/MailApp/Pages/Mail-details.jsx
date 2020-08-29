@@ -36,7 +36,7 @@ export class MailDetails extends React.Component {
             (this.state.mail !== null) ? (
                 <div>
                     <section className="main-details flex">
-                        <div className="small-icons flex padding-left">
+                        <div className="small-icons flex flex-end padding-left">
                             <div className="sent-at flex">{sentAt}</div>
                             <span className="trash black" onClick={(event) => this.deleteMail(event, id)}>🗑</span>
                         </div>
@@ -51,19 +51,17 @@ export class MailDetails extends React.Component {
                             <div className="body-details">{body}</div>
                             <Link to={`/mail/${id}/reply`} className="edit"><i className="fas fa-pencil-alt"></i></Link>
                         </div>
-                        {replies.map((mail) => {
-                            return (<div className="replies" key={mail.id}>
-                                <div className="sent-from-details flex">
-                                    <div className="sent-at flex">{sentAt}</div>
+                        {replies.map((reply) => {
+                            console.log('foreach-', reply);
+                            return (<div className="replies flex" key={reply.id}>
+                                <div className="sent-from-replies flex">
+                                    <div className="sent-at flex flex-end">{reply.sentAt}</div>
                                     <div className="flex">
-                                        <div className="sent-from-user"> {sentFromUser.charAt(0)}</div>
-                                        <div className="user-full-name bold">{sentFromUser}</div>
+                                        <div className="sent-from-user"> {reply.sentFromUser.charAt(0)}</div>
+                                        <div className="user-full-name bold">{reply.sentFromUser}</div>
                                     </div>
+                                 <div className="body-details">{reply.body}</div>
                                 </div>
-                                <div className="flex space-between">
-                                    <div className="body-details">{body}</div>
-                                </div>
-                                <Link to={`/mail/${id}/reply`} className="edit"><i className="fas fa-pencil-alt"></i></Link>
                             </div>
                             )
                         })}
