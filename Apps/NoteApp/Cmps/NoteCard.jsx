@@ -83,7 +83,7 @@ export class NoteCard extends React.Component {
 
                     {this.props.content.type === 'list' ? <div className="space"></div> : null}
 
-                    {this.props.content.type === 'image' ? <img src={`${this.props.content.url}`}></img> : null}
+                    {this.props.content.type === 'image' ? <div><h3>{this.props.content.title}</h3><img src={`${this.props.content.url}`}></img></div> : null}
 
                     {this.props.content.type === 'youtube' ? <iframe width="100%" src={`${this.props.content.video}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe> : null}
 

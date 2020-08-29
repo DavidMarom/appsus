@@ -28,19 +28,8 @@ function loadDump() {
       bg: 'aaa',
       url: '',
       type: 'list',
-      list: ['David Marom', 'Chen Edri','Another guy','and another'],
+      list: ['David Marom', 'Chen Edri','DONT PUT .git FOLDERS','IN DROPBOX!!'],
       video: '',
-      pinned:false
-
-    }, {
-      id: 's4gf54',
-      title: 'Take Rexi out for a walk',
-      body: 'Dont bump into cats this time',
-      bg: 'bbb',
-      url: '',
-      type: 'youtube',
-      list: [],
-      video: 'https://www.youtube.com/embed/XrHqQcwSjtE',
       pinned:false
 
     },
@@ -48,7 +37,7 @@ function loadDump() {
       id: '55g454',
       title: 'Work on the project',
       body: 'Push commit etc..',
-      bg: 'ccc',
+      bg: 'bbb',
       url: '',
       type: 'text',
       list: [],
@@ -60,7 +49,7 @@ function loadDump() {
       id: '54sdfgf4y',
       title: 'Donate blood',
       body: 'Lie about the unprotected sex questions this time...',
-      bg: 'ddd',
+      bg: 'ccc',
       url: '',
       type: 'text',
       list: [],
@@ -70,8 +59,8 @@ function loadDump() {
     }, {
       id: '54fsdf3d4',
       title: 'Rob a bank',
-      body: 'We need cash...',
-      bg: 'eee',
+      body: '',
+      bg: 'ddd',
       url: 'https://media.giphy.com/media/kclGU7Fgztb9HtcHRI/giphy.gif',
       type: 'image',
       list: [],
@@ -82,11 +71,23 @@ function loadDump() {
       id: '5jdjerg44',
       title: 'Escape the country',
       body: 'We dont want to go to prison, dont we?',
-      bg: 'ccc',
+      bg: 'eee',
       url: '',
       type: 'text',
       list: [],
       video: '',
+      pinned:false
+
+    },
+    {
+      id: 's4gf54',
+      title: '',
+      body: '',
+      bg: 'ggg',
+      url: '',
+      type: 'youtube',
+      list: [],
+      video: 'https://www.youtube.com/embed/XrHqQcwSjtE',
       pinned:false
 
     }

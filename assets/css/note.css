@@ -62,6 +62,11 @@
     background-color: #777777;
 }
 
+.ggg {
+    background-color: #000000;
+
+}
+
 .pick {
     width: 20px;
     height: 20px;
@@ -165,7 +170,7 @@ input:focus {
 }
 
 .pin-on {
-    color: #ca0000;
+    color: #ff8800;
 }
 
 .pin-off {
