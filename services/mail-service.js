@@ -37,7 +37,7 @@ function getMails() {
 }
 
 function getEmptyMail() {
-    return { id: MainService.makeId(), name: 'inbox', sentFromUser: '', userBgc: '#' + makeRandomColor(), subject: '', body: '', isRead: false, sentAt: getTime(), isStarred: false }
+    return { id: MainService.makeId(), name: 'inbox', sentFromUser: '', userBgc: '#' + makeRandomColor(), subject: '', body: '', isRead: false, sentAt: getTime(), isStarred: false, replies:[] }
 }
 
 // function query() {// returne relelvant mails
@@ -109,7 +109,7 @@ function changeToRead(mail) {
 
 function markMailAsStar(mail) {
     mail.isStarred = !mail.isStarred;
-    mail.name += ' , starred';
+    mail.name = mail.name.includes(' , starred')? mail.name.replace(', starred',''):mail.name+=' ,starred';
     const mails = getMails();
     const currIdx = findMailIndex(mail);
     mails.splice(currIdx, 1, mail);

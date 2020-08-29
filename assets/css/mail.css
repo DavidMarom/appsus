@@ -114,6 +114,11 @@ flex-direction: column;
     max-width: 70vw;
 }
 
+.mail-card{
+    overflow:scroll;
+    height: 500px;
+}
+
 
 /* SIDE BAR*/
 
@@ -543,14 +548,13 @@ transition:0.5s;
        flex-direction: column;
    }
 
-   .left-nav-bar{
+   .left-nav-bar {
        flex-direction: row;
        font-size: 0.8rem;
-      
-       width:100%;
    }
 
    .left-nav-bar >*{
+       font-size:14px;
        padding:0;
        border:none;
        height: 100%;
@@ -560,18 +564,19 @@ transition:0.5s;
        background-color: none;
    }
 
-   .upper-mail-navbar{
+   .upper-mail-navbar *{
        display: flex;
        justify-content: center;
        align-content: center;
        justify-items: center;
        align-items: center;
-       width:100vw;
        margin:0;
+       font-size:14px;
    }
 
    .mail-card{
-       width:100vw;
+       overflow:scroll;
+       height: 500px;
        margin:0;
        padding:0;
    }
@@ -594,10 +599,16 @@ transition:0.5s;
     margin:0;
     display:grid;
     grid-auto-columns: 1fr 1fr;
-    grid-auto-rows: 1fr;
 }
 
 .main-div-body{
     width:100vw;
 }
+
+.body-inbox *{
+    padding:0;
+    font-size:13px;
+}
+
+
 }
