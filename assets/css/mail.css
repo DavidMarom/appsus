@@ -191,11 +191,11 @@ flex-direction: column;
     border-left: 1.3px solid rgba(212, 210, 203, 0.836);
 }
 
-.main-mail-container:hover{
+/* .main-mail-container:hover{
     background-color: rgb(187, 133, 133, 0.5);
     border-radius:12px;
     transition: 0.2s;
-}
+} */
 
 .mail-card{
     
@@ -209,7 +209,7 @@ flex-direction: column;
 }
 
 .single-mail-component:hover{
-    background-color: rgba(219, 219, 219, 0.856);
+    background-color:rgb(187, 133, 133, 0.5);
     opacity: 0.7;
     transition: .1s;
     border-radius: 8px;
