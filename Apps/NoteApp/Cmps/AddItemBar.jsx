@@ -29,7 +29,7 @@ export class AddItemBar extends React.Component {
             bg: 'aaa',
             url: this.state.field,
             type: this.state.type,
-            list: ['item 1', 'item2'],
+            list: ['Item 1', 'Item 2'],
             video: this.state.field
         };
 
