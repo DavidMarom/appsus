@@ -160,6 +160,41 @@ input:focus {
     transition: .1s;
 }
 
+
+
+.pin-on {
+    color: #ff8800;
+}
+
+.pin-off {
+    color: #00000099;
+}
+
+
+.type-on {
+    color: #ff8800;
+    background-color: #ffffff00;
+    outline: none;
+    border:0px;
+
+}
+
+.type-on:focus {
+    outline: none;
+    border:0px;
+
+}
+
+
+.type-off {
+    color: #00000099;
+    background-color: #ffffff00;
+    outline: none;
+    border:0px;
+
+
+}
+
 .set-type-btn {
     background-color: #ffffff00;
     border: 0;
@@ -169,14 +204,6 @@ input:focus {
     outline: none;
 }
 
-.pin-on {
-    color: #ff8800;
-}
-
-.pin-off {
-    color: #00000099;
-
-}
 
 .list-input input{
     border:0px;

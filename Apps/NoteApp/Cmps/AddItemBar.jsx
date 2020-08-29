@@ -61,10 +61,10 @@ export class AddItemBar extends React.Component {
             <div className="add-item-bar">
                 <input placeholder={this.state.placeholder} value={this.state.field} onKeyUp={this.keyPressed} onChange={this.updateField} ></input>
 
-                <button className="set-type-btn" onClick={this.setNoteType}><i className="fab fa-youtube create-type" data-id="youtube"></i></button>
-                <button className="set-type-btn" onClick={this.setNoteType}><i className="fas fa-list-ul create-type" data-id="list"></i></button>
-                <button className="set-type-btn" onClick={this.setNoteType}><i className="far fa-image create-type" data-id="image"></i></button>
-                <button className="set-type-btn" onClick={this.setNoteType}><i className="far fa-file-alt create-type" data-id="text"></i></button>
+                <button className={`${this.state.type==='youtube' ? "type-on" : "type-off"}`}  onClick={this.setNoteType}><i className="fab fa-youtube create-type" data-id="youtube"></i></button>
+                <button className={`${this.state.type==='list' ? "type-on" : "type-off"}`}  onClick={this.setNoteType}><i className="fas fa-list-ul create-type" data-id="list"></i></button>
+                <button className={`${this.state.type==='image' ? "type-on" : "type-off"}`}  onClick={this.setNoteType}><i className="far fa-image create-type" data-id="image"></i></button>
+                <button className={`${this.state.type==='text' ? "type-on" : "type-off"}`}  onClick={this.setNoteType}><i className="far fa-file-alt create-type" data-id="text"></i></button>
             </div>
         )
     }
