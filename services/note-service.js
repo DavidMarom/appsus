@@ -29,16 +29,19 @@ function loadDump() {
       url: '',
       type: 'list',
       list: ['David Marom', 'Chen Edri','Another guy','and another'],
-      video: ''
+      video: '',
+      pinned:false
+
     }, {
       id: 's4gf54',
       title: 'Take Rexi out for a walk',
       body: 'Dont bump into cats this time',
-      bg: 'eee',
+      bg: 'bbb',
       url: '',
-      type: 'text',
+      type: 'youtube',
       list: [],
-      video: ''
+      video: 'https://www.youtube.com/embed/XrHqQcwSjtE',
+      pinned:false
 
     },
     {
@@ -49,7 +52,8 @@ function loadDump() {
       url: '',
       type: 'text',
       list: [],
-      video: ''
+      video: '',
+      pinned:false
 
     },
     {
@@ -60,27 +64,30 @@ function loadDump() {
       url: '',
       type: 'text',
       list: [],
-      video: ''
+      video: '',
+      pinned:false
 
     }, {
       id: '54fsdf3d4',
       title: 'Rob a bank',
       body: 'We need cash...',
-      bg: 'aaa',
+      bg: 'eee',
       url: 'https://media.giphy.com/media/kclGU7Fgztb9HtcHRI/giphy.gif',
       type: 'image',
       list: [],
-      video: ''
+      video: '',
+      pinned:false
 
     }, {
       id: '5jdjerg44',
       title: 'Escape the country',
       body: 'We dont want to go to prison, dont we?',
-      bg: 'bbb',
+      bg: 'ccc',
       url: '',
       type: 'text',
       list: [],
-      video: ''
+      video: '',
+      pinned:false
 
     }
   ]

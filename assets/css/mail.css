@@ -506,6 +506,7 @@ transition:0.5s;
 
 @media(max-width: 650px){
     *{
-        width: fit-content;
+        /* THIS THING INTERRUPTS THE HERO IMAGE AND MY NOTES CONTROL BAR */
+        /* width: fit-content; */
     }
 }
