@@ -14,6 +14,7 @@ export class NoteCard extends React.Component {
     state = {
         notes: '',
         colorModal: 'color-hide',
+        pinned: false
     }
 
     componentDidMount() {
@@ -24,6 +25,17 @@ export class NoteCard extends React.Component {
         var FILTERED = this.props.allNotes.filter((note) => note.id != this.props.content.id)
         noteService.updateNotes(FILTERED);
         this.setState({ notes: FILTERED });
+        this.props.loadNotesFromStorage();
+        this.props.history.push(`/note`);
+    }
+
+    pinCard = () => {
+        var modifiedNotesArr = this.props.allNotes;
+        modifiedNotesArr[this.props.currentNoteId].pinned = !modifiedNotesArr[this.props.currentNoteId].pinned;
+        noteService.updateNotes(modifiedNotesArr);
+        this.setState({ notes: modifiedNotesArr });
+        this.setState({ pinned: modifiedNotesArr[this.props.currentNoteId].pinned });
+
         this.props.loadNotesFromStorage();
         this.props.history.push(`/note`);
     }
@@ -59,14 +71,9 @@ export class NoteCard extends React.Component {
 
                     {this.props.content.type === 'text' ? <div>
                         <h3>{!note && this.props.content.title}</h3>
-                        <p>{this.props.content.body}</p>    </div> : null}
+                        <p>{this.props.content.body}</p></div> : null}
 
-
-                    {this.props.content.type === 'list' ? <div>
-                        <h3>{!note && this.props.content.title}</h3>                    </div> : null}
-
-
-                    {/* <img src={`${this.props.content.url}`}></img> */}
+                    {this.props.content.type === 'list' ? <div><h3>{!note && this.props.content.title}</h3></div> : null}
 
                     {this.props.content.type === 'list' ?
                         this.props.content.list.map((item, idx) => <div key={idx} className="list-in-card">
@@ -74,13 +81,19 @@ export class NoteCard extends React.Component {
                             <div className="btn" data-id={idx} onClick={this.removeListItem}>X</div>
                         </div>) : null}
 
+                    {this.props.content.type === 'list' ? <div className="space"></div> : null}
+
                     {this.props.content.type === 'image' ? <img src={`${this.props.content.url}`}></img> : null}
 
-                    <div className="space"></div>
+                    {this.props.content.type === 'youtube' ? <iframe width="100%" src={`${this.props.content.video}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe> : null}
+
+
+
                 </div>
 
                 {/* *********  CONTROL BAR: Color, Trash  ************ */}
                 <div className="control">
+                    <div className={`${this.state.pinned ? "pin-on" : "pin-off"}`} onClick={this.pinCard}><i className="fas fa-thumbtack"></i></div>
                     <div className="btn" onClick={this.deleteCard}><i className="far fa-trash-alt"></i></div>
                     <div className={`pick ${this.props.content.bg}`} onClick={this.openColorSelect}></div>
                 </div>
@@ -93,7 +106,7 @@ export class NoteCard extends React.Component {
                     <div className="pick ddd" value="ddd" onClick={this.updateColor}></div>
                     <div className="pick eee" value="eee" onClick={this.updateColor}></div>
                 </div>
-            </div> // card
+            </div > // card
         )
     }
 }

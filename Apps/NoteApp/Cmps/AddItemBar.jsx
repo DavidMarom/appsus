@@ -6,6 +6,7 @@ export class AddItemBar extends React.Component {
     state = {
         type: 'text',
         field: '',
+        placeholder: 'Enter a text note',
         notes: ''
     }
 
@@ -33,7 +34,7 @@ export class AddItemBar extends React.Component {
         };
 
         var prepareNewAllNotes = this.props.allNotes;
-        prepareNewAllNotes.push(prepareNote);
+        prepareNewAllNotes.unshift(prepareNote);
 
         noteService.updateNotes(prepareNewAllNotes);
 
@@ -46,7 +47,10 @@ export class AddItemBar extends React.Component {
 
     setNoteType = (ev) => {
         this.setState({ type: ev.target.getAttribute('data-id') })
-        this.setState({ field: ev.target.getAttribute('data-id') })
+        // this.setState({ field: ev.target.getAttribute('data-id') })
+
+        this.setState({ placeholder: ev.target.getAttribute('data-id') })
+
 
         console.log(this.state.type)
     }
@@ -55,7 +59,7 @@ export class AddItemBar extends React.Component {
         // const { itemType } = this.state
         return (
             <div className="add-item-bar">
-                <input placeholder="Add a new note" value={this.state.field} onKeyUp={this.keyPressed} onChange={this.updateField} ></input>
+                <input placeholder={this.state.placeholder} value={this.state.field} onKeyUp={this.keyPressed} onChange={this.updateField} ></input>
 
                 <button className="set-type-btn" onClick={this.setNoteType}><i className="fab fa-youtube create-type" data-id="youtube"></i></button>
                 <button className="set-type-btn" onClick={this.setNoteType}><i className="fas fa-list-ul create-type" data-id="list"></i></button>

@@ -525,5 +525,12 @@ transition:0.5s;
 }
 
 @media(max-width: 650px){
+<<<<<<< HEAD
    
+=======
+    *{
+        /* THIS THING INTERRUPTS THE HERO IMAGE AND MY NOTES CONTROL BAR */
+        /* width: fit-content; */
+    }
+>>>>>>> 6501e95131cb379e79b1c1c954e7bf7ebe66d468
 }
