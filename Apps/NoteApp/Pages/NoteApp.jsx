@@ -9,6 +9,7 @@ import { noteService } from "../../../services/note-service.js";
 import { NoteCard } from "../Cmps/NoteCard.jsx";
 import { AddItemBar } from "../Cmps/AddItemBar.jsx";
 
+
 export class NoteApp extends React.Component {
     state = {
         notes: ''

@@ -178,6 +178,12 @@ input:focus {
 
 }
 
+.list-input input{
+    border:0px;
+    background-color: #ffffff77;
+    border-radius: 10px;
+}
+
 @media(max-width: 650px) {
     .add-item-bar {
         width: 100%;

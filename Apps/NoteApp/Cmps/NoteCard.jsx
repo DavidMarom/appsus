@@ -1,4 +1,6 @@
 import { noteService } from "../../../services/note-service.js";
+import { ListInput } from "../Cmps/ListInput.jsx";
+
 
 // PROPS:
 // ------------------------------------------------
@@ -18,7 +20,15 @@ export class NoteCard extends React.Component {
     }
 
     componentDidMount() {
-        // this.setState({ notes: this.props.allNotes });
+        this.setState({ notes: this.props.allNotes });
+    }
+
+    updateCard = (newAllNotes) => {
+        this.setState({notes: newAllNotes})
+        noteService.updateNotes(newAllNotes);
+
+        this.props.history.push(`/note`);
+
     }
 
     deleteCard = () => {
@@ -81,12 +91,11 @@ export class NoteCard extends React.Component {
                             <div className="btn" data-id={idx} onClick={this.removeListItem}>X</div>
                         </div>) : null}
 
-                    {this.props.content.type === 'list' ? <div className="space"></div> : null}
+                    {this.props.content.type === 'list' ? <ListInput lll={this.props.loadNotesFromStorage} uuu={this.updateCard} allNotes={this.props.allNotes} currentNote={this.props.currentNoteId} history={this.props.history} /> : null}
 
                     {this.props.content.type === 'image' ? <div><h3>{this.props.content.title}</h3><img src={`${this.props.content.url}`}></img></div> : null}
 
                     {this.props.content.type === 'youtube' ? <iframe width="100%" src={`${this.props.content.video}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe> : null}
-
 
 
                 </div>
