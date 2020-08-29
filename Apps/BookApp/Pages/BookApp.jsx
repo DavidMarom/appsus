@@ -7,8 +7,8 @@ const { Link, Switch, Route, NavLink, withRouter } = ReactRouterDOM
 
 
 import { bookService } from '../../../services/book-service.js'
-import { BookList } from "../cmps/BookList.jsx";
-import { Filter } from "../cmps/Filter.jsx";
+import { BookList } from "../Cmps/BookList.jsx";
+import { Filter } from "../Cmps/Filter.jsx";
 
 export class BookApp extends React.Component {
     state = {
