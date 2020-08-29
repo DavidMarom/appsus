@@ -2,9 +2,7 @@ const { Link, Switch, Route } = ReactRouterDOM
 
 import { MailList } from './MailList.jsx'
 import { MailDetails } from './Mail-details.jsx'
-import { OpenMail } from '../Cmps/OpenMail.jsx';
 import { MailAdd } from './MailAdd.jsx'
-import { MailFilter } from '../Cmps/MailFilter.jsx'
 
 export class MailApp extends React.Component {
 
@@ -34,15 +32,6 @@ export class MailApp extends React.Component {
         this.setState({ time });
     }
 
-    // setFilter = (filterSpecificMails) => {
-    //     console.log(filterSpecificMails);
-    //     this.props.history.push(`/mail/list/inbox?=${filterSpecificMails}`)
-    //     this.setState({ filterSpecificMails })
-    //     // mailService.getMailsForDisplay(this.state.filterBy, filterSpecificMails)
-    //     // .then(mails=> this.setState({mails}))
-    // }
-
-
     render() {
         const isInboxActive = this.state.isInboxActive;
         return (
@@ -53,7 +42,6 @@ export class MailApp extends React.Component {
                         <Link to={`/mail/list/inbox`} >📩Inbox</Link>
                         <Link to={`/mail/list/starred`}>⭐ Starred</Link>
                         <Link to={`/mail/list/draft`}>📄 Drafts</Link>
-                        <OpenMail />
                     </div>
                     <div className="main-body">
                         <div className="upper-mail-navbar">

@@ -216,7 +216,7 @@ flex-direction: column;
 
 .sentFromUser{
     padding:0;
-    width:35px;
+    width:60px;
     height: 32px;
     margin: 10px 10px;
     border-radius: 50px;
@@ -234,7 +234,7 @@ flex-direction: column;
 }
 
 .body-inbox{
-    width:57rem;
+    width:53rem;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -514,6 +514,7 @@ transition:0.5s;
 @media (max-width: 1100px){
     .main-body-inbox{
        max-width:50vw;
+       font-size: 13px;
     }
 
     .body-inbox{
@@ -524,6 +525,79 @@ transition:0.5s;
     }
 }
 
-@media(max-width: 650px){
-   
+@media(max-width: 850px){
+
+   .big-container{
+       width:100vw;
+   }
+
+   .main-body{
+       margin:0;
+       width:100vw;
+   }
+
+   .main-mail-page{
+       margin:0;
+       width:100vw;
+       display: flex;
+       flex-direction: column;
+   }
+
+   .left-nav-bar{
+       flex-direction: row;
+       font-size: 0.8rem;
+      
+       width:100%;
+   }
+
+   .left-nav-bar >*{
+       padding:0;
+       border:none;
+       height: 100%;
+   }
+
+   .left-nav-bar :not(:first-child):hover{
+       background-color: none;
+   }
+
+   .upper-mail-navbar{
+       display: flex;
+       justify-content: center;
+       align-content: center;
+       justify-items: center;
+       align-items: center;
+       width:100vw;
+       margin:0;
+   }
+
+   .mail-card{
+       width:100vw;
+       margin:0;
+       padding:0;
+   }
+
+   .compose{
+       display:all;
+       background-color:none;
+   }
+   .body-inbox{
+       max-width:20rem;
+   }
+}
+
+@media(max-width : 450px){
+.main-mail-container{
+    display: grid;
+}
+
+.single-mail-component{
+    margin:0;
+    display:grid;
+    grid-auto-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+}
+
+.main-div-body{
+    width:100vw;
+}
 }
