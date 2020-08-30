@@ -37,14 +37,41 @@ export class NoteApp extends React.Component {
                 <AddItemBar allNotes={this.state.notes} ln={this.loadNotesFromStorage} history={this.props.history}  />
 
                 <div className="notes-container">
-                    {this.state.notes.length && this.state.notes.map((note, iDx) => <NoteCard
+                    {this.state.notes.length && this.state.notes.map((note, iDx) => 
+                    
+                    note.pinned ? 
+
+                    <NoteCard
                         key={iDx}
                         loadNotesFromStorage={this.loadNotesFromStorage}
                         history={this.props.history}
                         currentNoteId={iDx}
                         content={note}
                         allNotes={this.state.notes}
-                    />)}
+                        pin={true}
+                    />
+                    
+                    : null
+                    
+                    )}
+
+{this.state.notes.length && this.state.notes.map((note, iDx) => 
+                    
+                    note.pinned ? 
+                        null :
+                    <NoteCard
+                        key={iDx}
+                        loadNotesFromStorage={this.loadNotesFromStorage}
+                        history={this.props.history}
+                        currentNoteId={iDx}
+                        content={note}
+                        allNotes={this.state.notes}
+                        pin={false}
+                    />
+                    
+                   
+                    
+                    )}
 
                 </div>
             </div>

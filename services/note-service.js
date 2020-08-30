@@ -54,7 +54,7 @@ function loadDump() {
       type: 'text',
       list: [],
       video: '',
-      pinned:false
+      pinned:true
 
     }, {
       id: '54fsdf3d4',

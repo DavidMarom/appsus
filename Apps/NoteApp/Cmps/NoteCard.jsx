@@ -102,7 +102,7 @@ export class NoteCard extends React.Component {
 
                 {/* *********  CONTROL BAR: Color, Trash  ************ */}
                 <div className="control">
-                    <div className={`${this.state.pinned ? "pin-on" : "pin-off"}`} onClick={this.pinCard}><i className="fas fa-thumbtack"></i></div>
+                    <div className={`${this.props.pin ? "pin-on" : "pin-off"}`} onClick={this.pinCard}><i className="fas fa-thumbtack"></i></div>
                     <div className="btn" onClick={this.deleteCard}><i className="far fa-trash-alt"></i></div>
                     <div className={`pick ${this.props.content.bg}`} onClick={this.openColorSelect}></div>
                 </div>
